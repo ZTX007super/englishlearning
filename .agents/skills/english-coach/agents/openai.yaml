@@ -1,0 +1,5 @@
+interface:
+  display_name: "英语长期教练"
+  short_description: "长期陪伴式日常英语训练、复习追踪与新版托福基础备考教练"
+  default_prompt: "Use $english-coach to start today's 30-minute adaptive English lesson."
+

@@ -1,0 +1,8 @@
+.cache/
+downloads/
+generated-audio/
+*.tmp
+*.bak
+Thumbs.db
+.DS_Store
+
