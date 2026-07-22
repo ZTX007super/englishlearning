@@ -1,2 +1,4 @@
 id	category	original	corrected	explanation	status	level	next_review	last_review	source_session
-
+E0001	grammar	you, bombard	you are bombarded	被动语态中助动词和过去分词共同构成完整谓语。	active	0	2026-07-22		2026-07-21
+E0002	grammar	suggests us to check	suggests that we check	不能使用 suggest somebody to do；可用 suggest that 从句或 advise somebody to do。	active	0	2026-07-22		2026-07-21
+E0003	grammar	circulate widely that	circulate so widely that	表达“如此……以至于……”需要完整的 so ... that 结果结构。	active	0	2026-07-22		2026-07-21
