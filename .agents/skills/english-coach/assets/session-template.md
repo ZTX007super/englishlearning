@@ -1,9 +1,13 @@
 ---
+session_id: SYYYYMMDD-01
 date: YYYY-MM-DD
+plan_item_id: PC0001-D1
 session_type: daily
 status: completed
 duration_minutes: 30
 primary_skill: listening
+study_timezone: Asia/Shanghai
+source_type: network
 ---
 
 # 学习目标
@@ -24,6 +28,14 @@ primary_skill: listening
 - 做得较好：
 - 主要困难：
 
+# 结构化证据
+
+- raw evidence_id：
+- 未提示表现摘要：
+- metric / score / scale：
+- revised evidence_id：
+- 反馈后重试摘要：
+
 # 重点反馈
 
 1. 原表达 → 推荐表达 → 原因 → 重试结果
@@ -37,4 +49,3 @@ primary_skill: listening
 # 下一步
 
 - 
-

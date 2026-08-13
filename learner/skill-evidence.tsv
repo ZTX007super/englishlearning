@@ -1,0 +1,65 @@
+evidence_id	session_id	skill	phase	metric	score	scale	evidence	next_focus
+EV0001	S20260721-01	reading	raw	comprehension			能准确概括主旨、回忆三条建议并完成推断；部分词汇和复杂结构需要提示	巩固词汇、完整谓语与复杂连接结构
+EV0002	S20260723-01	writing	raw	task_completion	4	5	独立完成主题明确且信息基本完整的问题邮件	进一步提高请求措辞的准确性
+EV0003	S20260723-01	writing	raw	organization	4	5	邮件有称呼、问题说明、处理请求与结尾	增强段落衔接
+EV0004	S20260723-01	writing	raw	grammar	3	5	基本句意清楚；时态、主谓一致和冠词需要提示	建立完成后的语法校对习惯
+EV0005	S20260723-01	writing	raw	vocabulary	3	5	能使用网络故障与维修相关表达；部分搭配受中文影响	巩固固定搭配和自然请求表达
+EV0006	S20260723-01	writing	raw	coherence	3	5	信息顺序合理；个别长句关系不够清晰	用连接词明确原因、结果和建议
+EV0007	S20260723-01	writing	revised	target_accuracy	1	1	反馈后能正确使用 a stable internet connection 和 the problem remains	后续任务中独立迁移这些表达
+EV0008	S20260724-01	listening	raw	main_idea	1	1	首次播放后准确判断两名学生正在寻找并比较火星与地球的相似点	继续检查数字、对比关系和复述完整度
+EV0009	S20260724-01	listening	raw	key_details	4	4	第二次播放后准确记录火星温度、两颗行星距太阳距离、火星水的状态和重力比例	在复述中把孤立数字组织成完整对比
+EV0010	S20260724-01	listening	raw	retelling_accuracy	5	5	无提示复述包含主旨、温度、距离、水和重力；准确听出两颗行星距太阳的绝对距离不同，但按太空尺度看差距不大	用完整比较结构组织细节，并提高搭配和比较对象的准确性
+EV0011	S20260724-01	listening	revised	retelling_accuracy	5	5	重试后数字单位和水的表达更完整，并准确保留原文关于天文尺度下距离差距不大的判断	使用 similarities between、on an astronomical scale 和 Earth's gravity 提高表达准确性
+EV0012	S20260725-01	speaking	raw	task_response	4	5	三个未提示问题均切题作答，能说明理由并提供英语学习、网站改进和专业教育方面的具体例子	把复杂技术说明压缩为更清楚的核心步骤
+EV0013	S20260725-01	speaking	raw	organization	3	5	能使用 firstly、secondly、before、then 和 thus 组织内容；技术说明中代词和重复标签使关系偶尔不清楚	先命名两个系统，再按 problem-action-result 顺序说明
+EV0014	S20260725-01	speaking	raw	grammar_control	3	5	大部分句子可理解；单数主语的动词形式、冠词和名词结构反复不稳定	巩固 a student majoring in、the website has/gives 和 students do not
+EV0015	S20260725-01	speaking	raw	vocabulary_range	3	5	能调用日常学习和计算机领域词汇表达观点；部分搭配受中文直译影响	积累 learning pace、strengths and weaknesses、improve people's lives 等自然搭配
+EV0016	S20260725-01	speaking	raw	fluency	2	5	三次转写均有较长内容，但学习者补充说明实际表达经常断续，并会在句中失去下一步内容；未实际评估发音、重音或语调	先用三点提纲组织内容，再用短句连续表达
+EV0017	S20260725-01	speaking	revised	organization	4	5	重试时先说明旧流程和问题，再说明新增步骤及结果；两个 AI 系统的职责比首次回答清楚	继续使用 problem-change-result，并在开头固定系统名称
+EV0018	S20260725-01	speaking	revised	fluency	2	5	转写文本连贯，但学习者报告实际重试仍有频繁停顿和说到一半不知道下一步内容的情况	练习10秒列三点和每点一个核心句，减少实时造长句
+EV0019	S20260726-01	mixed	raw	task_completion	4	5	未提示自评准确指出听力和阅读优势、实时组织与句子结构困难，并提出两项改进方向；未达到要求的6至8句	把改进措施写成可执行的频率、时长和任务
+EV0020	S20260726-01	mixed	raw	organization	4	5	按优势、困难和对应行动组织，指代 first one 和 second one 基本清楚	用并列结构分别说明两项困难及对应计划
+EV0021	S20260726-01	mixed	raw	grammar_control	3	5	基本句法正确且意义清楚；复杂名词组合和介词搭配不够自然	使用 organizing my thoughts in English 和 make mistakes with
+EV0022	S20260726-01	mixed	raw	vocabulary_range	3	5	能够使用 difficulty、practice、express 和 review 等词完成自评；部分表达受中文直译影响	积累 real-time organization、sentence patterns 和 specific practice actions
+EV0023	S20260726-01	mixed	revised	task_completion	5	5	重写达到6句，保留听读优势和两项核心困难，并为复习计划增加每天执行的具体频率	继续把计划细化为可观察的口语时长和复习任务
+EV0024	S20260726-01	mixed	revised	target_accuracy	3	5	能正确使用 organize my thoughts in English in real time 和 make mistakes with；仍有可数名词单复数、句子片段和动词形式问题	巩固 form sentences、完整例句和介词后动名词
+EV0025	S20260726-01	reading	assessment	cefr_baseline			初步B1：能理解B1材料主旨、三条建议和推断；词汇与复杂结构仍需要提示	巩固核心词组、完整谓语和复杂连接结构
+EV0026	S20260726-01	listening	assessment	cefr_baseline			初步B1：清晰对话首次主旨1/1、第二次关键细节4/4，复述内容准确；证据仍限于一篇清晰B1材料	扩大不同说话者和自然语速材料，并保持完整比较表达
+EV0027	S20260726-01	writing	assessment	cefr_baseline			初步B1：能独立完成主题明确、结构完整的问题邮件；时态、冠词、搭配和主谓一致不稳定	建立句末语法检查并练习自然搭配
+EV0028	S20260726-01	speaking	assessment	cefr_baseline			初步B1：熟悉话题能切题并给理由或例子；实际表达频繁停顿并会失去下一步内容，未评估发音	用10秒三点提纲和短句框架提高连续表达
+EV0029	S20260726-01	mixed	assessment	overall_cefr_baseline			首轮四项证据支持综合初步B1；听读理解相对稳定，写作任务可完成，口语实时组织和句子准确性是主要短板	下一课优先训练短提纲后的45至60秒连续口语
+EV0030	S20260727-01	speaking	raw	organization	4	5	首次口语按学习内容、主要困难、工具支持和下一步组织，完整回应任务	继续用三个关键词降低实时组织负担
+EV0031	S20260727-01	speaking	raw	transcript_based_fluency	3	5	首次口语约89词、65秒，按转写和自报时长约82词每分钟；未实际评估发音、重音、语调和停顿分布	在保持完整结构的同时压缩重复表达
+EV0032	S20260727-01	speaking	revised	organization	4	5	最终重试约92词、58秒，达到目标时长并保持内容、困难、支持和下一步的完整结构	把同一结构迁移到新的熟悉话题
+EV0033	S20260727-01	speaking	revised	target_accuracy	3	5	重试中正确使用difficulty with、track my progress和a personalized training plan；let加动词原形、泛指冠词和set the pace仍不稳定	复习let加动词原形、a typical chatbot和set the pace for my learning
+EV0034	S20260728-01	speaking	raw	organization	4	5	新话题迁移回答按问题、功能和结果组织，60秒内保持主题并完成结尾	继续把三点提纲迁移到不同熟悉话题
+EV0035	S20260728-01	speaking	raw	target_accuracy	3	5	正确使用track your progress和set the pace for your learning；缺少冠词、完整谓语和完整主句	输出后检查冠词、be动词和句子边界
+EV0036	S20260728-01	speaking	revised	target_accuracy	4	5	重试正确使用have access to、an AI agent和完整结尾句；manage the progress in study仍不自然	区分manage your learning与track your progress
+EV0037	S20260729-01	listening	raw	comprehension_questions	3	3	首次播放后准确说明迟到导致提问、考试下周二返还和实际为软件工程课	继续用首次播放抓住人物、问题和转折
+EV0038	S20260729-01	listening	raw	key_details	2	3	第二次播放准确听出迟到五分钟和第34页，未完整辨认search engine optimisation	练习技术术语的词组切分和首字母缩写
+EV0039	S20260729-01	listening	raw	retelling_coverage	4	4	无提示复述按顺序覆盖迟到、考试返还时间、页码与SEO、走错教室四个要点	提高转述问句的语序和时态准确性
+EV0040	S20260729-01	listening	revised	target_accuracy	3	4	重试后正确使用what page they were on、the wrong class、when they would get和what SEO meant；tests与them仍有单复数不一致	转述完成后检查间接问句和单复数照应
+EV0041	S20260731-01	speaking	raw	task_response	4	5	建议切题，提出每日练习和先组成短句再连接的两项可执行方法	在结尾明确说明建议带来的学习结果
+EV0042	S20260731-01	speaking	raw	grammar_control	3	5	正确使用If I were you和Perhaps you could try；engage缺少介词，目的不定式和try后的动词结构不稳定	巩固engage in、use something to do和try to do或try doing
+EV0043	S20260731-01	speaking	revised	target_accuracy	4	5	重试正确使用engage in、try to express和first try to form，并以speak more fluently说明结果	把建议句型迁移到新的生活和学习问题
+EV0044	S20260731-01	speaking	revised	transcript_based_fluency	3	5	重试约65词、50秒，按转写与自报时长约78词每分钟；结构连贯，未评估发音、重音或实际停顿分布	保持45至60秒长度并减少对firstly和secondly的依赖
+EV0045	S20260803-01	reading	raw	comprehension_questions	3	3	准确识别AI支持学习的两种方式、核查信息的原因和do the heavy lifting的语境含义	继续从教育类短文中提取主旨、原因和习语含义
+EV0046	S20260803-01	speaking	raw	organization	4	5	一分钟回答按观点、优点、风险和结论组织，内容切题且结尾完整	逐步减少句首框架提示并保持同样结构
+EV0047	S20260803-01	speaking	raw	target_accuracy	3	5	正确使用reliable sources和do all the heavy lifting；can后的并列动词、单数可数名词冠词和be used to结构不稳定	复习can加动词原形、a personalized study plan和be used to do
+EV0048	S20260803-01	speaking	revised	target_accuracy	5	5	重试正确使用a personalized study plan、help me find reliable sources、do all the heavy lifting和enhance my learning rather than replace it	把目标表达迁移到新的学习与技术话题
+EV0049	S20260803-01	speaking	revised	transcript_based_fluency	4	5	重试约71词、50秒，按转写与自报时长约85词每分钟；结构连贯，未评估发音、重音或实际停顿分布	保持80至95词每分钟并减少when I use AI, I use it等重复
+EV0050	S20260809-01	listening	raw	main_detail_note_taking	4	5	两遍后抓住听力困难、两个策略以及身份证和银行账户场景；office听辨和先概括再提问的顺序需要提示	继续练习关键词词组切分，并记录建议的适用条件和步骤顺序
+EV0051	S20260809-01	speaking	raw	task_coverage	4	5	60秒复述覆盖主旨、两种策略、适用场景和小问题的作用；第二种策略遗漏先概括的步骤	用三点提纲完整保留策略的条件、顺序和结果
+EV0052	S20260809-01	speaking	revised	target_accuracy	3	5	重述补上summarise what the person said并明确information；ask smaller questions和the other person仍未稳定	迁移ask questions搭配，并检查两人对话中的单数指代
+EV0053	S20260809-01	speaking	revised	transcript_based_fluency	3	5	重述约73词、65秒，按转写与自报时长约67词每分钟；结构连贯，语音听写仅作可懂度线索，未严格评价发音、重音或语调	保持完整结构并逐步把稳定语速提高到约75至85词每分钟
+EV0054	S20260810-01	writing	raw	task_completion	5	5	约86词短文切题并按问题、工具、功能和结果组织；首次与再次提及、泛指复数、be加ing和情态动词并列结构均出现	在保持内容完整的同时加入三步语言校对
+EV0055	S20260810-01	writing	raw	grammar_control	3	5	能正确使用a skill到the skill、are trying和can guide并help；名词数、单数冠词、can后的动词形式和profession词形不稳定	圈出可数名词并检查限定词，再划出每个情态动词后的原形
+EV0056	S20260810-01	writing	revised	target_accuracy	3	5	重写修正most AI agents、a series、AI和HTML大写及what students want to learn；can provide based on、professional、students和an HTML visual demonstration仍未稳定	短测base something on与be based on，并用名词和谓语双重检查清单复写新段落
+EV0057	S20260811-01	reading	raw	task_type_comprehension	3	4	正确理解Complete the Words、Read in Daily Life和Build a Sentence；首次把提出请求误判为Academic Discussion，重看官方说明后改为Write an Email	继续用任务目的和典型场景区分TOEFL当前题型
+EV0058	S20260811-01	writing	raw	sentence_building	3	3	三道句子构建全部正确，稳定使用based on、can后的并列原形和whether间接问句语序	在限时短写作中继续保持完整谓语和间接问句
+EV0059	S20260811-01	writing	raw	email_task_completion	4	5	约108词请求邮件包含延期原因、两天请求、当前进度和礼貌结尾；超出70至90词练习目标，request和时间介词搭配不稳定	在保持四项信息完整的前提下删除重复并使用固定请求搭配
+EV0060	S20260811-01	writing	revised	target_accuracy	4	5	重写约95词，修正delayed、by two days、a lot of effort和礼貌结尾；request an extension和put effort into仍未稳定	轮次复盘中用新场景短测两处残留搭配并进一步压缩到目标长度
+EV0061	S20260812-01	speaking	raw	unsupported_organization	4	5	未提供提纲时仍能独立形成明确立场和两个理由，内容切题；第二个理由展开较少且AI tools重复较多	下一轮继续撤除首次输出框架，并要求理由包含解释或具体结果
+EV0062	S20260812-01	speaking	raw	transcript_based_fluency	2	5	首次无框架回答约59词、60秒，按转写与自报时长约59词每分钟；未评估发音、重音、停顿分布或语调	将无框架首次输出逐步提高到约70至80词每分钟并保持内容完整
+EV0063	S20260812-01	speaking	revised	target_accuracy	4	5	重说正确使用have the freedom to decide、when and how to use AI及support rather than replace；仍有少量重复但观点推进清楚	减少AI tools的重复并用代词或更具体的动作扩展理由
+EV0064	S20260812-01	speaking	revised	transcript_based_fluency	3	5	重说约76词、60秒，按转写与自报时长约76词每分钟；达到本次速度目标，未评估发音、重音、停顿分布或语调	在新话题首次输出中复现相近速度，而不是只在反馈后达到

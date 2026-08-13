@@ -1,8 +1,10 @@
 .cache/
 downloads/
 generated-audio/
+.state/current-session.json
+.state/review-transaction.json
+.state/*.tmp
 *.tmp
 *.bak
 Thumbs.db
 .DS_Store
-
