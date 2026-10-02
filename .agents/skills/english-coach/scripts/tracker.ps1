@@ -1,6 +1,6 @@
 ﻿[CmdletBinding()]
 param(
-    [ValidateSet('Due', 'Review', 'ReviewBatch', 'Summary', 'Bootstrap', 'StartSession', 'Checkpoint', 'FinalizeSession', 'CloseCheckpoint', 'AbandonSession', 'AbandonCheckpoint', 'CancelPlanItem', 'Rebuild', 'MonthlySummary', 'QuarterlySummary', 'Validate')]
+    [ValidateSet('Due', 'Review', 'ReviewBatch', 'Summary', 'Bootstrap', 'StartSession', 'Checkpoint', 'PrepareActivity', 'PrepareReviewQuestions', 'SaveReviewAnswer', 'SaveActivityCheckpoint', 'StageReviewBatch', 'FinalizeSession', 'CloseCheckpoint', 'AbandonSession', 'AbandonCheckpoint', 'CancelPlanItem', 'Rebuild', 'MonthlySummary', 'QuarterlySummary', 'EvaluateLongTermState', 'PublishCycle', 'MigrationPlan', 'ActivateV4', 'Validate')]
     [string]$Action = 'Due',
     [string]$ProjectRoot,
     [datetime]$Date,
@@ -17,7 +17,15 @@ param(
     [int]$DurationMinutes,
     [string]$Note,
     [string]$CancelReason,
-    [string]$PeriodKey
+    [string]$PeriodKey,
+    [string]$OwnerToken,
+    [int]$ExpectedRevision = -1,
+    [string]$IdempotencyKey,
+    [string]$PayloadJson,
+    [string]$FaultAfterPhase,
+    [switch]$ConfirmActivation,
+    [switch]$EnterSession,
+    [switch]$IncludeAllDue
 )
 
 Set-StrictMode -Version Latest
@@ -27,6 +35,36 @@ if ([string]::IsNullOrWhiteSpace($ProjectRoot)) {
     $ProjectRoot = (Resolve-Path -LiteralPath (Join-Path $PSScriptRoot '..\..\..\..')).Path
 }
 else { $ProjectRoot = (Resolve-Path -LiteralPath $ProjectRoot).Path }
+
+$V4OnlyActions = @('PrepareActivity','PrepareReviewQuestions','SaveReviewAnswer','SaveActivityCheckpoint','StageReviewBatch','EvaluateLongTermState','PublishCycle','MigrationPlan','ActivateV4')
+$V4SharedActions = @('Bootstrap','StartSession','FinalizeSession','AbandonSession','Validate')
+$RuntimePointerPath = Join-Path $ProjectRoot '.state\runtime.json'
+$MigrationPointerPath = Join-Path $ProjectRoot '.state\migration-v4-transaction.json'
+$V4StateExists = (Test-Path -LiteralPath $RuntimePointerPath -PathType Leaf) -or
+    (Test-Path -LiteralPath $MigrationPointerPath -PathType Leaf)
+if ($Action -in $V4OnlyActions -or ($V4StateExists -and $Action -in $V4SharedActions)) {
+    $V4Tracker = Join-Path $PSScriptRoot 'tracker-v4.ps1'
+    $V4Arguments = @{
+        Action = $Action
+        ProjectRoot = $ProjectRoot
+        SessionId = $SessionId
+        PlanItemId = $PlanItemId
+        OwnerToken = $OwnerToken
+        ExpectedRevision = $ExpectedRevision
+        IdempotencyKey = $IdempotencyKey
+        PayloadJson = $PayloadJson
+        SourceType = $SourceType
+        FaultAfterPhase = $FaultAfterPhase
+        ConfirmActivation = $ConfirmActivation
+        EnterSession = $EnterSession
+    }
+    if ($PSBoundParameters.ContainsKey('Date')) { $V4Arguments.Date = $Date }
+    & $V4Tracker @V4Arguments
+    return
+}
+if ($V4StateExists) {
+    throw "Action $Action uses the legacy v3 interface and is unavailable while a v4 migration/runtime pointer exists. Run Bootstrap for the allowed next action."
+}
 
 $SettingsPath = Join-Path $ProjectRoot 'learner\settings.json'
 $VocabularyPath = Join-Path $ProjectRoot 'learner\vocabulary.tsv'
@@ -43,6 +81,7 @@ $CheckpointPath = Join-Path $ProjectRoot '.state\current-session.json'
 $ReviewTransactionPath = Join-Path $ProjectRoot '.state\review-transaction.json'
 $Intervals = @(1, 3, 7, 14, 30, 60)
 $RequiredStages = @('review', 'input', 'output', 'feedback')
+$NormalReviewLimit = 6
 
 $VocabularyHeaders = @('id', 'item', 'meaning', 'context', 'status', 'level', 'next_review', 'last_review', 'source_session')
 $ErrorHeaders = @('id', 'category', 'original', 'corrected', 'explanation', 'status', 'level', 'next_review', 'last_review', 'source_session')
@@ -50,6 +89,13 @@ $ReviewHeaders = @('event_id', 'reviewed_at', 'study_date', 'session_id', 'item_
 $PlanHeaders = @('plan_item_id', 'plan_id', 'sequence', 'title', 'session_type', 'primary_skill', 'required', 'status', 'completed_session_id')
 $PlanEventHeaders = @('event_id', 'occurred_at', 'study_date', 'plan_item_id', 'event', 'reason')
 $EvidenceHeaders = @('evidence_id', 'session_id', 'skill', 'phase', 'metric', 'score', 'scale', 'evidence', 'next_focus')
+$SupportsJsonDateKind = (Get-Command ConvertFrom-Json).Parameters.ContainsKey('DateKind')
+
+function ConvertFrom-StableJson {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Text)
+    if ($script:SupportsJsonDateKind) { return ($Text | ConvertFrom-Json -DateKind String) }
+    return ($Text | ConvertFrom-Json)
+}
 
 function Write-AtomicText {
     param([Parameter(Mandatory = $true)][string]$Path, [Parameter(Mandatory = $true)][AllowEmptyString()][string]$Text)
@@ -160,6 +206,32 @@ function Get-DueRows {
     } | Sort-Object next_review, id)
 }
 
+function Get-DueSelection {
+    param(
+        [object[]]$VocabularyRows,
+        [object[]]$ErrorRows,
+        [int]$Limit,
+        [switch]$IncludeAll
+    )
+    $DueVocabulary = @(Get-DueRows -Rows $VocabularyRows)
+    $DueErrors = @(Get-DueRows -Rows $ErrorRows)
+    $Tagged = @(
+        @($DueVocabulary | ForEach-Object { [pscustomobject]@{ collection = 'vocabulary'; row = $_ } }) +
+        @($DueErrors | ForEach-Object { [pscustomobject]@{ collection = 'error'; row = $_ } })
+    )
+    $Ordered = @($Tagged | Sort-Object @{ Expression = { $_.row.next_review }; Ascending = $true }, @{ Expression = { [int]$_.row.level }; Ascending = $true }, @{ Expression = { $_.row.id }; Ascending = $true })
+    $Selected = if ($IncludeAll) { $Ordered } else { @($Ordered | Select-Object -First $Limit) }
+    return [pscustomobject]@{
+        vocabulary_count = $DueVocabulary.Count
+        error_count = $DueErrors.Count
+        total_count = $DueVocabulary.Count + $DueErrors.Count
+        vocabulary = @($Selected | Where-Object collection -eq 'vocabulary' | ForEach-Object { $_.row })
+        errors = @($Selected | Where-Object collection -eq 'error' | ForEach-Object { $_.row })
+        selected_count = @($Selected).Count
+        truncated = (-not $IncludeAll -and @($Selected).Count -lt ($DueVocabulary.Count + $DueErrors.Count))
+    }
+}
+
 function Get-CurrentCycleRows {
     param([object[]]$PlanRows)
     $Ordered = @($PlanRows | Sort-Object plan_id, { [int]$_.sequence })
@@ -224,7 +296,9 @@ function Get-Metrics {
     $Streak = 0; $Cursor = $script:StudyDate
     if (-not $Dates.ContainsKey($Cursor.ToString('yyyy-MM-dd'))) { $Cursor = $Cursor.AddDays(-1) }
     while ($Dates.ContainsKey($Cursor.ToString('yyyy-MM-dd'))) { $Streak++; $Cursor = $Cursor.AddDays(-1) }
-    $Last = @($Completed | Sort-Object { [datetime]::ParseExact($_.Meta.date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture) } | Select-Object -Last 1)
+    $Last = @($Completed | Where-Object {
+        [datetime]::ParseExact($_.Meta.date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture).Date -le $script:StudyDate
+    } | Sort-Object { [datetime]::ParseExact($_.Meta.date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture) } | Select-Object -Last 1)
     $Gap = $null
     if ($Last.Count -eq 1) { $Gap = [int]($script:StudyDate - [datetime]::ParseExact($Last[0].Meta.date, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture).Date).TotalDays }
     $CycleRows = @(Get-CurrentCycleRows -PlanRows $PlanRows)
@@ -282,7 +356,7 @@ function Get-PlanBlock {
 
 function Complete-ReviewTransaction {
     if (-not (Test-Path -LiteralPath $ReviewTransactionPath -PathType Leaf)) { return $false }
-    $Transaction = Get-Content -Raw -Encoding UTF8 -LiteralPath $ReviewTransactionPath | ConvertFrom-Json
+    $Transaction = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $ReviewTransactionPath)
     if ($Transaction.status -eq 'completed') { return $false }
     if ($Transaction.status -ne 'pending') { throw 'Review transaction has an unknown status.' }
     $KnownEvents = @{}
@@ -472,7 +546,7 @@ function Get-ValidationReport {
     }
     if (Test-Path -LiteralPath $CheckpointPath -PathType Leaf) {
         try {
-            $Checkpoint = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json
+            $Checkpoint = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath)
             foreach ($Field in @('schema_version', 'status', 'session_id', 'plan_item_id', 'study_date', 'study_timezone', 'session_type', 'primary_skill', 'started_at', 'updated_at', 'last_completed_stage', 'checkpoints')) { if ($Field -notin $Checkpoint.PSObject.Properties.Name) { $ValidationErrors.Add("current-session is missing field: $Field") } }
             if ($Checkpoint.status -notin @('in_progress', 'completed', 'abandoned')) { $ValidationErrors.Add("Invalid current-session status: $($Checkpoint.status)") }
             if ($Checkpoint.study_timezone -ne [string]$script:Settings.study_timezone -or -not (Test-DateValue $Checkpoint.study_date)) { $ValidationErrors.Add('current-session has invalid date or timezone.') }
@@ -521,14 +595,36 @@ switch ($Action) {
     'Summary' { Get-Metrics -VocabularyRows $Vocabulary -ErrorRows $Errors -PlanRows $Plans -SessionRows $Sessions | ConvertTo-Json -Depth 6 }
     'Bootstrap' {
         $Recovered = Complete-ReviewTransaction; if ($Recovered) { Read-AllData }
-        $Plans = @(Sync-PlanState -PlanRows $Plans -SessionRows $Sessions); Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders
+        $PlanStateBefore = @($Plans | ForEach-Object { "$($_.plan_item_id)|$($_.status)|$($_.completed_session_id)" }) -join "`n"
+        $Plans = @(Sync-PlanState -PlanRows $Plans -SessionRows $Sessions)
+        $PlanStateAfter = @($Plans | ForEach-Object { "$($_.plan_item_id)|$($_.status)|$($_.completed_session_id)" }) -join "`n"
+        $PlanStateReconciled = $PlanStateBefore -ne $PlanStateAfter
+        if ($PlanStateReconciled) { Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders }
         $Next = @(Get-NextPlanItem -PlanRows $Plans); $Checkpoint = $null
-        if (Test-Path -LiteralPath $CheckpointPath -PathType Leaf) { $Candidate = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json; if ($Candidate.status -eq 'in_progress') { $Checkpoint = $Candidate } }
+        if (Test-Path -LiteralPath $CheckpointPath -PathType Leaf) { $Candidate = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath); if ($Candidate.status -eq 'in_progress') { $Checkpoint = $Candidate } }
         $Metrics = Get-Metrics -VocabularyRows $Vocabulary -ErrorRows $Errors -PlanRows $Plans -SessionRows $Sessions
-        [pscustomobject]@{ status = $(if ($null -ne $Checkpoint) { 'resume' } else { 'ready' }); recovered_review_transaction = $Recovered; checkpoint = $Checkpoint; next_plan_item = $(if ($Next.Count -eq 1) { $Next[0] } else { $null }); recovery_mode = $Metrics.recovery_mode; review_limit = $(if ($Metrics.recovery_mode) { 10 } else { @(Get-DueRows -Rows $Vocabulary).Count + @(Get-DueRows -Rows $Errors).Count }); new_word_limit = $(if ($Metrics.recovery_mode) { 3 } else { $null }); due_vocabulary = @(Get-DueRows -Rows $Vocabulary); due_errors = @(Get-DueRows -Rows $Errors); metrics = $Metrics } | ConvertTo-Json -Depth 8
+        $ReviewLimit = if ($Metrics.recovery_mode) { 10 } else { $NormalReviewLimit }
+        $DueSelection = Get-DueSelection -VocabularyRows $Vocabulary -ErrorRows $Errors -Limit $ReviewLimit -IncludeAll:$IncludeAllDue
+        [pscustomobject]@{
+            status = $(if ($null -ne $Checkpoint) { 'resume' } else { 'ready' })
+            recovered_review_transaction = $Recovered
+            plan_state_reconciled = $PlanStateReconciled
+            checkpoint = $Checkpoint
+            next_plan_item = $(if ($Next.Count -eq 1) { $Next[0] } else { $null })
+            recovery_mode = $Metrics.recovery_mode
+            review_limit = $ReviewLimit
+            new_word_limit = $(if ($Metrics.recovery_mode) { 3 } else { $null })
+            due_counts = [pscustomobject]@{ vocabulary = $DueSelection.vocabulary_count; errors = $DueSelection.error_count; total = $DueSelection.total_count }
+            due_vocabulary = @($DueSelection.vocabulary)
+            due_errors = @($DueSelection.errors)
+            due_items_selected = $DueSelection.selected_count
+            due_items_truncated = $DueSelection.truncated
+            include_all_due = [bool]$IncludeAllDue
+            metrics = $Metrics
+        } | ConvertTo-Json -Depth 8
     }
     'StartSession' {
-        if (Test-Path -LiteralPath $CheckpointPath -PathType Leaf) { $Existing = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json; if ($Existing.status -eq 'in_progress') { throw "Resume active session $($Existing.session_id) before starting another." } }
+        if (Test-Path -LiteralPath $CheckpointPath -PathType Leaf) { $Existing = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath); if ($Existing.status -eq 'in_progress') { throw "Resume active session $($Existing.session_id) before starting another." } }
         $Next = @(Get-NextPlanItem -PlanRows $Plans); if ($Next.Count -ne 1) { throw 'No queued plan item is available.' }
         if (-not [string]::IsNullOrWhiteSpace($PlanItemId) -and $PlanItemId -ne $Next[0].plan_item_id) { throw "The next queued item is $($Next[0].plan_item_id); $PlanItemId is blocked by sequence." }
         $PlanItemId = $Next[0].plan_item_id
@@ -545,7 +641,7 @@ switch ($Action) {
         $Next[0].status = 'in_progress'; $Next[0].completed_session_id = ''; Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders
         $Timestamp = Get-StudyTimestamp
         $Checkpoint = [pscustomobject]@{ schema_version = 2; status = 'in_progress'; session_id = $SessionId; plan_item_id = $PlanItemId; study_date = $StudyDate.ToString('yyyy-MM-dd'); study_timezone = [string]$Settings.study_timezone; session_type = $SessionType; primary_skill = $PrimarySkill; session_file = $SessionFile.Substring($ProjectRoot.Length + 1).Replace('\', '/'); started_at = $Timestamp; updated_at = $Timestamp; last_completed_stage = ''; checkpoints = @() }
-        Write-AtomicText -Path $CheckpointPath -Text ($Checkpoint | ConvertTo-Json -Depth 8); Read-AllData; [void](Invoke-Rebuild)
+        Write-AtomicText -Path $CheckpointPath -Text ($Checkpoint | ConvertTo-Json -Depth 8); [void](Invoke-Rebuild)
         [pscustomobject]@{ status = 'started'; session_id = $SessionId; plan_item_id = $PlanItemId; session_file = $Checkpoint.session_file } | ConvertTo-Json
     }
     'Review' {
@@ -564,7 +660,7 @@ switch ($Action) {
     'Checkpoint' {
         if ([string]::IsNullOrWhiteSpace($SessionId) -or [string]::IsNullOrWhiteSpace($Stage)) { throw 'Checkpoint requires -SessionId and -Stage.' }
         if (-not (Test-Path -LiteralPath $CheckpointPath -PathType Leaf)) { throw 'StartSession must create the session before checkpoints can be saved.' }
-        $Checkpoint = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json
+        $Checkpoint = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath)
         if ($Checkpoint.status -ne 'in_progress' -or $Checkpoint.session_id -ne $SessionId) { throw 'Checkpoint does not match an active session.' }
         $Order = @('review', 'input', 'output', 'feedback', 'recording'); $ExpectedIndex = @($Checkpoint.checkpoints).Count
         if ($ExpectedIndex -ge $Order.Count -or $Stage -ne $Order[$ExpectedIndex]) { throw "Expected checkpoint stage $($Order[$ExpectedIndex]); received $Stage." }
@@ -576,7 +672,7 @@ switch ($Action) {
     { $_ -in @('FinalizeSession', 'CloseCheckpoint') } {
         if ([string]::IsNullOrWhiteSpace($SessionId)) { throw 'FinalizeSession requires -SessionId.' }
         if (-not (Test-Path -LiteralPath $CheckpointPath -PathType Leaf)) { throw 'No current-session checkpoint exists.' }
-        $Checkpoint = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json
+        $Checkpoint = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath)
         if ($Checkpoint.status -ne 'in_progress' -or $Checkpoint.session_id -ne $SessionId) { throw 'Checkpoint does not match the session being finalized.' }
         $SavedStages = @($Checkpoint.checkpoints | ForEach-Object { $_.stage })
         foreach ($Required in $RequiredStages) { if ($Required -notin $SavedStages) { throw "FinalizeSession requires checkpoint stage: $Required" } }
@@ -586,20 +682,31 @@ switch ($Action) {
         $Linked = @($Plans | Where-Object { $_.plan_item_id -eq $Checkpoint.plan_item_id }); if ($Linked.Count -ne 1) { throw 'Checkpoint plan item is missing.' }
         $Linked[0].status = 'completed'; $Linked[0].completed_session_id = $SessionId; Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders
         $Checkpoint.status = 'completed'; $Checkpoint.updated_at = Get-StudyTimestamp; Write-AtomicText -Path $CheckpointPath -Text ($Checkpoint | ConvertTo-Json -Depth 8)
-        Read-AllData; [void](Invoke-Rebuild); Read-AllData; $Report = Get-ValidationReport
+        $Metrics = Invoke-Rebuild; $Report = Get-ValidationReport
         if ($Report.status -ne 'valid') { throw "Finalization left validation errors: $($Report.errors -join '; ')" }
-        [pscustomobject]@{ status = 'completed'; session_id = $SessionId; next_plan_item = @(Get-NextPlanItem -PlanRows $Plans | Select-Object -First 1) } | ConvertTo-Json -Depth 6
+        [pscustomobject]@{
+            status = 'completed'
+            session_id = $SessionId
+            next_plan_item = @(Get-NextPlanItem -PlanRows $Plans | Select-Object -First 1)
+            archive = [pscustomobject]@{
+                views_rebuilt = $true
+                validation_status = $Report.status
+                validation_errors = $Report.error_count
+                validation_warnings = $Report.warning_count
+            }
+            metrics = $Metrics
+        } | ConvertTo-Json -Depth 6
     }
     { $_ -in @('AbandonSession', 'AbandonCheckpoint') } {
         if ([string]::IsNullOrWhiteSpace($SessionId)) { throw 'AbandonSession requires -SessionId.' }
         if (-not (Test-Path -LiteralPath $CheckpointPath -PathType Leaf)) { throw 'No current-session checkpoint exists.' }
-        $Checkpoint = Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath | ConvertFrom-Json
+        $Checkpoint = ConvertFrom-StableJson -Text (Get-Content -Raw -Encoding UTF8 -LiteralPath $CheckpointPath)
         if ($Checkpoint.session_id -ne $SessionId) { throw 'Checkpoint belongs to another session.' }
         $Recorded = @($Sessions | Where-Object { $_.Meta.ContainsKey('session_id') -and $_.Meta.session_id -eq $SessionId })
         if ($Recorded.Count -ne 1 -or $Recorded[0].Meta.status -ne 'abandoned') { throw 'AbandonSession requires one matching abandoned session file.' }
         $Linked = @($Plans | Where-Object { $_.plan_item_id -eq $Checkpoint.plan_item_id }); if ($Linked.Count -eq 1 -and $Linked[0].status -eq 'in_progress') { $Linked[0].status = 'planned'; $Linked[0].completed_session_id = ''; Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders }
         $Checkpoint.status = 'abandoned'; $Checkpoint.updated_at = Get-StudyTimestamp; if (-not [string]::IsNullOrWhiteSpace($Note)) { $Checkpoint | Add-Member -NotePropertyName abandonment_note -NotePropertyValue $Note -Force }; Write-AtomicText -Path $CheckpointPath -Text ($Checkpoint | ConvertTo-Json -Depth 8)
-        Read-AllData; [void](Invoke-Rebuild); [pscustomobject]@{ status = 'abandoned'; session_id = $SessionId } | ConvertTo-Json
+        [void](Invoke-Rebuild); [pscustomobject]@{ status = 'abandoned'; session_id = $SessionId } | ConvertTo-Json
     }
     'CancelPlanItem' {
         if ([string]::IsNullOrWhiteSpace($PlanItemId) -or [string]::IsNullOrWhiteSpace($CancelReason)) { throw 'CancelPlanItem requires -PlanItemId and -CancelReason.' }
@@ -607,7 +714,7 @@ switch ($Action) {
         if ($Next[0].status -ne 'planned') { throw 'An in-progress plan item must be abandoned, not cancelled.' }
         $Next[0].status = 'cancelled'; $Next[0].completed_session_id = ''; Write-TableRows -Path $PlanItemsPath -Rows $Plans -Headers $PlanHeaders
         $Event = [pscustomobject]@{ event_id = ('P' + [guid]::NewGuid().ToString('N')); occurred_at = Get-StudyTimestamp; study_date = $StudyDate.ToString('yyyy-MM-dd'); plan_item_id = $PlanItemId; event = 'cancelled'; reason = $CancelReason }; Add-TableRow -Path $PlanEventsPath -Row $Event -Headers $PlanEventHeaders
-        Read-AllData; $Metrics = Invoke-Rebuild; [pscustomobject]@{ status = 'cancelled'; plan_item_id = $PlanItemId; next_plan_item_id = $Metrics.next_plan_item_id } | ConvertTo-Json
+        $Metrics = Invoke-Rebuild; [pscustomobject]@{ status = 'cancelled'; plan_item_id = $PlanItemId; next_plan_item_id = $Metrics.next_plan_item_id } | ConvertTo-Json
     }
     'Rebuild' { Invoke-Rebuild | ConvertTo-Json -Depth 6 }
     'MonthlySummary' { New-PeriodSummary -Kind month -Key $PeriodKey | ConvertTo-Json }

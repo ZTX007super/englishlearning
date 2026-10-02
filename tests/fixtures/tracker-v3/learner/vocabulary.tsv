@@ -1,0 +1,5 @@
+id	item	meaning	context	status	level	next_review	last_review	source_session
+V0001	set the pace	设定节奏	The first task set the pace for the project.	active	0	2026-07-22		S20260721-01
+V0002	by doing	通过做某事	You improve by practising.	active	1	2026-07-22		S20260721-01
+V0003	reliable	可靠的	We need a reliable result.	active	2	2026-07-22		S20260721-01
+V0004	clarify	澄清	Please clarify the requirement.	active	0	2026-07-22		S20260721-01

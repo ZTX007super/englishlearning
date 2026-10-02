@@ -1,51 +1,70 @@
 ---
-session_id: SYYYYMMDD-01
+runtime_version: RUNTIME_VERSION
+session_id: SESSION_ID
 date: YYYY-MM-DD
-plan_item_id: PC0001-D1
-session_type: daily
-status: completed
-duration_minutes: 30
-primary_skill: listening
-study_timezone: Asia/Shanghai
-source_type: network
+plan_item_id: PLAN_ITEM_ID
+session_type: SESSION_TYPE
+status: in_progress
+duration_minutes:
+primary_skill: PRIMARY_SKILL
+study_timezone: STUDY_TIMEZONE
+source_type: SOURCE_TYPE
+package_hash:
+queue_guard:
+transaction_id:
+finalization_id:
 ---
 
-# 学习目标
+> 本模板由 tracker 创建和终结。AI不直接把 `status` 改成 `completed/abandoned`，也不手填 transaction、plan 或正式 evidence 状态。
 
-- 
+# 本课契约
 
-# 材料
+- 计划角色：
+- focus goal / competency：
+- 本课目标：
+- 完成条件：
 
-- 标题：
-- 发布者：
-- URL：
-- 访问日期：
-- 难度：
+# 材料与权利
 
-# 学习表现
+- content_id / context_id：
+- 标题与发布者：
+- URL 或本地 asset：
+- verified_at / as_of：
+- material profile：
+- rights status：
 
-- 完成内容：
-- 做得较好：
+# 已完成活动
+
+| activity_id | activity_family | purpose | task_result | support | observation / review event |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
+
+# 学习表现摘要
+
+- 独立完成：
 - 主要困难：
+- not_assessable / invalid：
+- raw / guided / transfer 引用：
 
-# 结构化证据
+# 实际处理的反馈主题
 
-- raw evidence_id：
-- 未提示表现摘要：
-- metric / score / scale：
-- revised evidence_id：
-- 反馈后重试摘要：
+最多记录三个实际处理主题，不把未教过的小错写成已处理。
 
-# 重点反馈
+1. 问题与选择原因：
+   - 原表达：
+   - 推荐表达与原因：
+   - guided 结果：
+   - transfer 结果或未进行原因：
 
-1. 原表达 → 推荐表达 → 原因 → 重试结果
+# Review 与候选
 
-# 复习记录
+- 正式 review event IDs：
+- encountered / vocabulary / error candidate IDs：
+- correction / void IDs：
 
-- 新增词组：
-- 到期项目：
-- 新增错误项：
+# 终局
 
-# 下一步
-
-- 
+- disposition：
+- committed receipt：
+- 下一严格队首：
+- rebuild_required / preload_pending：

@@ -1,0 +1,8 @@
+plan_item_id	plan_id	sequence	title	session_type	primary_skill	required	status	completed_session_id
+P2026W30-D1	C0001	1	已完成阅读课	daily	reading	true	completed	S20260721-01
+P2026W30-D2	C0001	2	待完成听力诊断	diagnostic	listening	true	planned	
+P2026W30-D3	C0001	3	待完成口语课	daily	speaking	true	planned	
+P2026W30-D4	C0001	4	已完成写作课	daily	writing	true	completed	S20260723-01
+P2026W30-D5	C0001	5	待完成写作课	daily	writing	true	planned	
+P2026W30-D6	C0001	6	待完成混合课	daily	mixed	true	planned	
+P2026W30-D7	C0001	7	轮次复盘	review	review	true	planned	

@@ -1,0 +1,5 @@
+id	category	original	corrected	explanation	status	level	next_review	last_review	source_session
+E0001	article	I bought book.	I bought a book.	可数单数名词通常需要限定词。	active	0	2026-07-22		S20260723-01
+E0002	agreement	She work hard.	She works hard.	第三人称单数一般现在时需要 -s。	active	1	2026-07-22		S20260723-01
+E0003	collocation	reach agreement of	reach agreement on	agreement 通常与 on 搭配。	active	2	2026-07-22		S20260723-01
+E0004	word-form	by practise	by practising	介词 by 后使用动名词。	active	0	2026-07-22		S20260723-01

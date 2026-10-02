@@ -1,0 +1,826 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.english-coach/schemas/migration-v4.schema.json",
+  "title": "English Coach v4 activation payload",
+  "description": "Validates a dry-run and activation decision. It does not authorize or perform writes.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "migration_schema_version",
+    "migration_id",
+    "idempotency_key",
+    "created_at",
+    "study_timezone",
+    "versions",
+    "boundary",
+    "dry_run",
+    "snapshot",
+    "baseline",
+    "migration_plan",
+    "validation",
+    "activation_gates",
+    "activation"
+  ],
+  "properties": {
+    "migration_schema_version": {
+      "const": 1
+    },
+    "migration_id": {
+      "$ref": "#/$defs/nonEmptyId"
+    },
+    "idempotency_key": {
+      "$ref": "#/$defs/nonEmptyId"
+    },
+    "created_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "study_timezone": {
+      "const": "Asia/Shanghai"
+    },
+    "versions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "from_data_schema",
+        "to_data_schema",
+        "from_protocol",
+        "to_protocol",
+        "catalog_version",
+        "ladder_version",
+        "contract_version",
+        "review_schema_version"
+      ],
+      "properties": {
+        "from_data_schema": {
+          "const": 3
+        },
+        "to_data_schema": {
+          "const": 4
+        },
+        "from_protocol": {
+          "const": 3
+        },
+        "to_protocol": {
+          "const": 4
+        },
+        "catalog_version": {
+          "const": "1.0.0"
+        },
+        "ladder_version": {
+          "const": "1.0.0"
+        },
+        "contract_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_schema_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_cycle_id",
+        "target_cycle_id",
+        "expected_queue_head_plan_item_id",
+        "current_session_status",
+        "old_review_transaction_status",
+        "c0003_plan_item_mutations",
+        "user_confirmed_c0004_plan",
+        "user_confirmation_ref"
+      ],
+      "properties": {
+        "source_cycle_id": {
+          "const": "C0003"
+        },
+        "target_cycle_id": {
+          "const": "C0004"
+        },
+        "expected_queue_head_plan_item_id": {
+          "$ref": "#/$defs/nonEmptyId"
+        },
+        "current_session_status": {
+          "enum": [
+            "completed",
+            "abandoned",
+            "none"
+          ]
+        },
+        "old_review_transaction_status": {
+          "enum": [
+            "completed",
+            "none"
+          ]
+        },
+        "c0003_plan_item_mutations": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "user_confirmed_c0004_plan": {
+          "const": true
+        },
+        "user_confirmation_ref": {
+          "$ref": "#/$defs/nonEmptyId"
+        }
+      }
+    },
+    "dry_run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "completed",
+        "writes_performed",
+        "manifest_id",
+        "manifest_sha256",
+        "generated_at",
+        "proposed_actions_reviewed"
+      ],
+      "properties": {
+        "completed": {
+          "const": true
+        },
+        "writes_performed": {
+          "const": false
+        },
+        "manifest_id": {
+          "$ref": "#/$defs/nonEmptyId"
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "generated_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "proposed_actions_reviewed": {
+          "const": true
+        }
+      }
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "snapshot_id",
+        "relative_path",
+        "created_at",
+        "verified",
+        "manifest_sha256",
+        "files"
+      ],
+      "properties": {
+        "snapshot_id": {
+          "$ref": "#/$defs/nonEmptyId"
+        },
+        "relative_path": {
+          "type": "string",
+          "pattern": "^(?!sessions(?:/|$))(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+        },
+        "created_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "verified": {
+          "const": true
+        },
+        "manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/snapshotFile"
+          }
+        }
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "queue_head_plan_item_id",
+        "counts",
+        "id_uniqueness_verified",
+        "references_verified",
+        "legacy_timestamp_bytes_preserved"
+      ],
+      "properties": {
+        "queue_head_plan_item_id": {
+          "$ref": "#/$defs/nonEmptyId"
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "sessions",
+            "plan_items",
+            "vocabulary",
+            "errors",
+            "review_events",
+            "skill_evidence"
+          ],
+          "properties": {
+            "sessions": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "plan_items": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "vocabulary": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "errors": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "review_events": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            },
+            "skill_evidence": {
+              "$ref": "#/$defs/nonNegativeInteger"
+            }
+          }
+        },
+        "id_uniqueness_verified": {
+          "const": true
+        },
+        "references_verified": {
+          "const": true
+        },
+        "legacy_timestamp_bytes_preserved": {
+          "const": true
+        }
+      }
+    },
+    "migration_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "file_actions",
+        "legacy_review",
+        "historical_semantic_backfill",
+        "historical_session_rewrite",
+        "historical_review_rewrite",
+        "legacy_closed_sessions_replayed",
+        "unknown_fields_policy"
+      ],
+      "properties": {
+        "file_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/fileAction"
+          }
+        },
+        "legacy_review": {
+          "$ref": "#/$defs/legacyReviewPlan"
+        },
+        "historical_semantic_backfill": {
+          "const": false
+        },
+        "historical_session_rewrite": {
+          "const": false
+        },
+        "historical_review_rewrite": {
+          "const": false
+        },
+        "legacy_closed_sessions_replayed": {
+          "const": false
+        },
+        "unknown_fields_policy": {
+          "const": "blank_or_unknown_never_inferred"
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isolated_rehearsal_passed",
+        "immutable_hashes_match",
+        "legacy_columns_equal",
+        "counts_not_decreased",
+        "ids_unique",
+        "references_valid",
+        "replay_deterministic",
+        "migration_retry_idempotent",
+        "phase_fault_recovery_passed",
+        "catalog",
+        "ladders",
+        "fallbacks",
+        "performance",
+        "pending_transactions"
+      ],
+      "properties": {
+        "isolated_rehearsal_passed": {
+          "const": true
+        },
+        "immutable_hashes_match": {
+          "const": true
+        },
+        "legacy_columns_equal": {
+          "const": true
+        },
+        "counts_not_decreased": {
+          "const": true
+        },
+        "ids_unique": {
+          "const": true
+        },
+        "references_valid": {
+          "const": true
+        },
+        "replay_deterministic": {
+          "const": true
+        },
+        "migration_retry_idempotent": {
+          "const": true
+        },
+        "phase_fault_recovery_passed": {
+          "const": true
+        },
+        "catalog": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "family_count",
+            "gate_count",
+            "minimum_indicators_per_gate",
+            "maximum_indicators_per_gate",
+            "all_references_valid",
+            "project_operationalization_marked"
+          ],
+          "properties": {
+            "family_count": {
+              "const": 15
+            },
+            "gate_count": {
+              "const": 45
+            },
+            "minimum_indicators_per_gate": {
+              "minimum": 2,
+              "maximum": 3,
+              "type": "integer"
+            },
+            "maximum_indicators_per_gate": {
+              "minimum": 2,
+              "maximum": 3,
+              "type": "integer"
+            },
+            "all_references_valid": {
+              "const": true
+            },
+            "project_operationalization_marked": {
+              "const": true
+            }
+          }
+        },
+        "ladders": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "all_references_valid",
+            "steps_per_dimension_valid",
+            "adjacent_only",
+            "maximum_dimensions_per_binding",
+            "shared_load_axis_guarded"
+          ],
+          "properties": {
+            "all_references_valid": {
+              "const": true
+            },
+            "steps_per_dimension_valid": {
+              "const": true
+            },
+            "adjacent_only": {
+              "const": true
+            },
+            "maximum_dimensions_per_binding": {
+              "const": 2
+            },
+            "shared_load_axis_guarded": {
+              "const": true
+            }
+          }
+        },
+        "fallbacks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "c0004_skeleton_count",
+            "all_presentable",
+            "rights_verified",
+            "checksums_verified",
+            "listening_audio_and_transcript_verified"
+          ],
+          "properties": {
+            "c0004_skeleton_count": {
+              "const": 6
+            },
+            "all_presentable": {
+              "const": true
+            },
+            "rights_verified": {
+              "const": true
+            },
+            "checksums_verified": {
+              "const": true
+            },
+            "listening_audio_and_transcript_verified": {
+              "const": true
+            }
+          }
+        },
+        "performance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "bootstrap_latency_ms",
+            "first_answerable_latency_ms",
+            "controllable_path_latency_ms",
+            "checkpoint_latency_ms",
+            "end_reducer_latency_ms",
+            "uncontrolled_latency_separated"
+          ],
+          "properties": {
+            "bootstrap_latency_ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "first_answerable_latency_ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 30000
+            },
+            "controllable_path_latency_ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 90000
+            },
+            "checkpoint_latency_ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 2000
+            },
+            "end_reducer_latency_ms": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 5000
+            },
+            "uncontrolled_latency_separated": {
+              "const": true
+            }
+          }
+        },
+        "pending_transactions": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    },
+    "activation_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "c0003_completed",
+        "c0004_plan_confirmed",
+        "snapshot_verified",
+        "dry_run_verified",
+        "isolated_rehearsal_verified",
+        "legacy_integrity_verified",
+        "catalog_verified",
+        "ladders_verified",
+        "facts_rebuild_verified",
+        "wal_recovery_verified",
+        "fallbacks_verified",
+        "performance_verified",
+        "no_pending_transactions",
+        "queue_guard_verified"
+      ],
+      "properties": {
+        "c0003_completed": {
+          "const": true
+        },
+        "c0004_plan_confirmed": {
+          "const": true
+        },
+        "snapshot_verified": {
+          "const": true
+        },
+        "dry_run_verified": {
+          "const": true
+        },
+        "isolated_rehearsal_verified": {
+          "const": true
+        },
+        "legacy_integrity_verified": {
+          "const": true
+        },
+        "catalog_verified": {
+          "const": true
+        },
+        "ladders_verified": {
+          "const": true
+        },
+        "facts_rebuild_verified": {
+          "const": true
+        },
+        "wal_recovery_verified": {
+          "const": true
+        },
+        "fallbacks_verified": {
+          "const": true
+        },
+        "performance_verified": {
+          "const": true
+        },
+        "no_pending_transactions": {
+          "const": true
+        },
+        "queue_guard_verified": {
+          "const": true
+        }
+      }
+    },
+    "activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "receipt_id",
+        "activated_at",
+        "expected_settings_sha256",
+        "expected_queue_guard_sha256",
+        "runtime_switch_is_final_write"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "committed"
+          ]
+        },
+        "receipt_id": {
+          "$ref": "#/$defs/nonEmptyId"
+        },
+        "activated_at": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "expected_settings_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "expected_queue_guard_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "runtime_switch_is_final_write": {
+          "const": true
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "activation": {
+            "properties": {
+              "status": {
+                "const": "committed"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "activation_gates": {
+            "properties": {
+              "c0003_completed": {
+                "const": true
+              },
+              "c0004_plan_confirmed": {
+                "const": true
+              },
+              "snapshot_verified": {
+                "const": true
+              },
+              "dry_run_verified": {
+                "const": true
+              },
+              "isolated_rehearsal_verified": {
+                "const": true
+              },
+              "legacy_integrity_verified": {
+                "const": true
+              },
+              "catalog_verified": {
+                "const": true
+              },
+              "ladders_verified": {
+                "const": true
+              },
+              "facts_rebuild_verified": {
+                "const": true
+              },
+              "wal_recovery_verified": {
+                "const": true
+              },
+              "fallbacks_verified": {
+                "const": true
+              },
+              "performance_verified": {
+                "const": true
+              },
+              "no_pending_transactions": {
+                "const": true
+              },
+              "queue_guard_verified": {
+                "const": true
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmptyId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "nonNegativeInteger": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+    },
+    "snapshotFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "size_bytes",
+        "sha256",
+        "classification"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "size_bytes": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "classification": {
+          "enum": [
+            "formal_fact",
+            "pending_state",
+            "projection",
+            "configuration"
+          ]
+        },
+        "header": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "row_count": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "fileAction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "path",
+        "action",
+        "classification",
+        "old_rows_preserved",
+        "semantic_backfill"
+      ],
+      "properties": {
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "action": {
+          "enum": [
+            "preserve",
+            "create",
+            "extend_columns",
+            "build_projection",
+            "build_cache"
+          ]
+        },
+        "classification": {
+          "enum": [
+            "formal_fact",
+            "pending_state",
+            "projection",
+            "cache",
+            "configuration"
+          ]
+        },
+        "old_rows_preserved": {
+          "type": "boolean"
+        },
+        "semantic_backfill": {
+          "const": false
+        },
+        "new_columns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expected_sha256_before": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "expected_sha256_after": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "legacyReviewPlan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_rows",
+        "exact_merge_groups",
+        "legacy_unverified_items",
+        "needs_recipe_fix_items",
+        "paused_or_retired_sources",
+        "manual_review_sources",
+        "old_schedule_used_only_for_sorting",
+        "history_backfilled"
+      ],
+      "properties": {
+        "source_rows": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "exact_merge_groups": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "legacy_unverified_items": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "needs_recipe_fix_items": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "paused_or_retired_sources": {
+          "$ref": "#/$defs/nonNegativeInteger"
+        },
+        "manual_review_sources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyId"
+          }
+        },
+        "old_schedule_used_only_for_sorting": {
+          "const": true
+        },
+        "history_backfilled": {
+          "const": false
+        }
+      }
+    }
+  }
+}

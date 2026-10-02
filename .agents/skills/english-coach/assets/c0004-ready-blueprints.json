@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "plan_id": "C0004",
+  "blueprints": [
+    {
+      "plan_item_id": "P2026W37-D2",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "listening",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Track one speaker's concern and identify how the second speaker responds",
+      "prompt_text": "Listen once without reading the transcript. Then explain: (1) why Mia is unsure about the workshop, and (2) what Leo's response is trying to help her do.",
+      "material": {
+        "content_id": "FB-C0004-D2-DIALOGUE",
+        "context_id": "research-workshop-response-001",
+        "audio_path": ".agents/skills/english-coach/assets/fallback/audio/c0004-d2-workshop-dialogue.wav",
+        "audio_sha256": "BA0225D90AD8A5AAC9D131568DB99FC47741274747D416F0DC3A0E5EE4E2E197",
+        "transcript_path": ".agents/skills/english-coach/assets/fallback/transcripts/c0004-d2-workshop-dialogue.md",
+        "transcript_sha256": "E32421FA12BAA6950BBE3B1DB01DBC8772286D91D3FE11665220E4405A1B6CD5",
+        "transcript_text": "Mia: I know the optional research workshop could help, but it meets on Friday afternoon, when I usually finish my lab reports. I am not sure the benefit is worth losing that time. Leo: That makes sense. Why not attend the first meeting and ask whether later sessions are recorded? Then you can judge the value without committing every Friday."
+      },
+      "criteria": [
+        { "criterion_id": "CR-D2-CONCERN", "importance": "essential", "description": "Identifies the time conflict and Mia's uncertainty about whether the benefit is worth it" },
+        { "criterion_id": "CR-D2-RESPONSE", "importance": "required", "description": "Explains that Leo validates the concern and proposes a trial before commitment" }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": ["Friday workshop conflicts with lab-report time", "Mia is unsure about the tradeoff", "Leo proposes attending once and checking recordings before deciding"],
+        "acceptable_variants": "Any wording that preserves the concern-response relationship",
+        "invalid_conditions": ["reverses either speaker's position", "states only isolated details without the relationship"]
+      }
+    },
+    {
+      "plan_item_id": "P2026W37-D3",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "practice",
+      "mode": "fluency",
+      "primary_construct": "Give a clear strategy explanation with an ordered process and reason",
+      "prompt_text": "A classmate understands lectures but forgets the content a few days later. Recommend one study strategy. Explain what to do first, what to do next, and why the strategy should help. Speak for about 45 seconds.",
+      "content_id": "CONTENT-P2026W37-D3-STUDY-STRATEGY",
+      "context_id": "CONTEXT-P2026W37-D3-CLASSMATE-ADVICE",
+      "criteria": [
+        { "criterion_id": "CR-D3-STRATEGY", "importance": "essential", "description": "Names one relevant study strategy" },
+        { "criterion_id": "CR-D3-SEQUENCE", "importance": "required", "description": "Explains at least two steps in a clear order" },
+        { "criterion_id": "CR-D3-REASON", "importance": "required", "description": "Connects the strategy to remembering content" }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": ["one strategy", "ordered steps", "reason it supports retention"],
+        "acceptable_variants": "Any realistic strategy with a coherent explanation",
+        "invalid_conditions": ["no strategy", "steps cannot be followed", "reason is unrelated to memory"]
+      }
+    },
+    {
+      "plan_item_id": "P2026W37-D4",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "reading",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Identify an expository text's main line and explain how a detail supports it",
+      "prompt_text": "Read the passage. State its main organizational line, then explain how the detail about attendance after week four supports the writer's conclusion.",
+      "material": {
+        "content_id": "CONTENT-P2026W37-D4-PEER-SESSIONS",
+        "context_id": "CONTEXT-P2026W37-D4-CAMPUS-PILOT",
+        "rights_status": "project_original",
+        "text": "Last semester, Northbridge University tested optional peer-led review sessions in three introductory courses. The sessions were designed to solve a common problem: students often waited until the week before an exam to discover what they did not understand. During each meeting, a trained student leader asked participants to explain one difficult idea, compare two possible solutions, and write down one question to take to the instructor. Early attendance was high, but it fell after the fourth week, especially in the course whose instructor rarely referred to the sessions. In the other two courses, instructors used anonymous questions from the meetings in later lectures, and attendance remained steadier. Exam results alone could not prove that the sessions caused better learning, because students chose whether to attend. However, the pilot suggested that peer review works best when it is connected visibly to the main course rather than offered as a separate extra service."
+      },
+      "criteria": [
+        { "criterion_id": "CR-D4-MAINLINE", "importance": "essential", "description": "Identifies the problem-pilot-evidence-qualified conclusion line" },
+        { "criterion_id": "CR-D4-DETAIL", "importance": "required", "description": "Explains that contrasting attendance patterns support the value of visible course connection" }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": ["pilot addressed delayed recognition of confusion", "attendance differed with instructor connection", "conclusion is qualified rather than causal"],
+        "acceptable_variants": "Any accurate description of the same organizational and evidential relationship",
+        "invalid_conditions": ["claims the exam results proved causation", "reverses the attendance contrast"]
+      }
+    },
+    {
+      "plan_item_id": "P2026W37-D5",
+      "stage": "output",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "purpose": "practice",
+      "mode": "mixed",
+      "primary_construct": "Write a short explanation with a clear recommendation, process, and sentence boundaries",
+      "prompt_text": "In about 80 words, explain one practical way a university student can reduce phone distractions while studying. State the method, explain how to use it, and give one reason it should work.",
+      "content_id": "CONTENT-P2026W37-D5-DISTRACTION-METHOD",
+      "context_id": "CONTEXT-P2026W37-D5-STUDY-ROUTINE",
+      "criteria": [
+        { "criterion_id": "CR-D5-METHOD", "importance": "essential", "description": "States one practical method for reducing phone distraction" },
+        { "criterion_id": "CR-D5-PROCESS", "importance": "required", "description": "Explains how to use the method and why it should work" },
+        { "criterion_id": "CR-D5-COHESION", "importance": "required", "description": "Uses understandable sentence boundaries and links the ideas clearly" }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": ["specific method", "implementation", "reason"],
+        "acceptable_variants": "Any safe and realistic method that answers the task",
+        "invalid_conditions": ["does not address phone distraction", "only names a method without explaining it"]
+      }
+    },
+    {
+      "plan_item_id": "P2026W37-D6",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "transfer",
+      "mode": "fluency",
+      "primary_construct": "Transfer a beginning-development-ending explanation to a new problem-solving context",
+      "prompt_text": "A campus project group has missed two deadlines because members wait for someone else to organize the work. Recommend one change. Explain how the group should begin, what should happen during the week, and what result you expect. Speak for 45–60 seconds.",
+      "content_id": "CONTENT-P2026W37-D6-GROUP-DEADLINES",
+      "context_id": "CONTEXT-P2026W37-D6-PROJECT-TEAM",
+      "criteria": [
+        { "criterion_id": "CR-D6-CHANGE", "importance": "essential", "description": "Recommends one relevant change" },
+        { "criterion_id": "CR-D6-SEQUENCE", "importance": "required", "description": "Organizes the response as beginning, development, and expected ending" },
+        { "criterion_id": "CR-D6-CONNECTION", "importance": "required", "description": "Connects the change to the missed-deadline problem" }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": ["recommended change", "ordered implementation", "expected result"],
+        "acceptable_variants": "Any realistic group-process solution with a coherent sequence",
+        "invalid_conditions": ["no recommendation", "response is unrelated to coordination", "sequence cannot be recovered"]
+      }
+    },
+    {
+      "plan_item_id": "P2026W37-D7",
+      "stage": "cycle_review",
+      "activity_family": "cycle_review",
+      "modality": "mixed",
+      "purpose": "assessment",
+      "mode": "mixed",
+      "primary_construct": "Review C0004 evidence, decide the focus goal, and confirm the next cycle before writing it",
+      "prompt_text": "Use the bounded C0004 evidence packet to present the focus-goal result, maintenance coverage, unresolved uncertainty, and one recommended next-cycle focus with an alternative. Ask for confirmation before changing the plan.",
+      "required_outputs": ["goal_decision", "evidence references", "recommended next focus", "alternative", "user confirmation"]
+    }
+  ]
+}

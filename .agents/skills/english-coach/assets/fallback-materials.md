@@ -1,6 +1,8 @@
 # 原创备用材料
 
-这些内容由本项目原创，用于网络不可用时继续训练。它们不是官方 TOEFL 材料，也不是真实音频。
+这些内容由本项目原创，用于缓存材料不可安全呈现且一次外部替代失败时继续同队首 training。它们不是官方 TOEFL 材料。
+
+[`fallback/manifest.json`](fallback/manifest.json) 是机器索引。只有 manifest 中 `presentable=true` 且全部必需文件与 hash 验证通过的条目才能作为 ready fallback。下列文字条目不是音频；不得用于需要真实听力输入或发音判断的正式活动。
 
 ## Campus Club Fair（B1）
 
@@ -25,3 +27,9 @@ Many students take breaks by checking short videos, yet this may not help them f
 
 追问重点：具体例子、原因、让步表达和清晰结论。
 
+## 已就绪的原创听力条目
+
+- [Campus Repair Corner](fallback/transcripts/campus-repair-corner.md)：B1，校园公告/对话型输入。
+- [A Quiet Change to Study Time](fallback/transcripts/quiet-change-to-study-time.md)：B1+，解释型短讲。
+
+两条 transcript 与 metadata 已冻结，并已使用本机离线 `en-US` 语音生成 WAV。音频与 transcript 的 SHA-256、时长、权利说明和 `presentable=true` 均记录在 manifest；tracker 仍须在每次使用前核对文件与 hash。它们只能作为项目原创 training fallback，不能冒充真人录音或官方 TOEFL 材料。

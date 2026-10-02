@@ -1,5 +1,5 @@
 {
-  "schema_version": 3,
+  "schema_version": 4,
   "schedule_mode": "queue",
   "study_timezone": "Asia/Shanghai",
   "windows_timezone_id": "China Standard Time",
@@ -7,5 +7,11 @@
   "daily_target_minutes": 30,
   "progress_window_days": 14,
   "training_sessions_per_cycle": 6,
-  "recovery_gap_days": 7
+  "recovery_gap_days": 7,
+  "runtime_protocol_version": 4,
+  "activation_id": "M4-43904e5a67cd1acd6b5a8c56",
+  "catalog_version": "1.0.0",
+  "ladder_version": "1.0.0",
+  "contract_version": "4.0.0",
+  "review_schema_version": "4.0.0"
 }

@@ -1,0 +1,4090 @@
+{
+  "schema_version": 1,
+  "catalog_id": "english-coach-competency-catalog",
+  "catalog_version": "1.0.0",
+  "status": "project_operationalization",
+  "language": "zh-CN",
+  "cefr_alignment": {
+    "label": "CEFR-referenced/aligned",
+    "official_source": {
+      "source_id": "CEFR-CV-2020",
+      "title": "Common European Framework of Reference for Languages: Learning, teaching, assessment — Companion volume",
+      "publisher": "Council of Europe",
+      "edition": "2020"
+    },
+    "disclaimer": "The can-do statements, families, indicators, anchors, and role matrix in this file are a local operationalization. They are not verbatim CEFR descriptors, an official calibration, or an examination score conversion.",
+    "source_chain_order": [
+      "official_scale_and_level_direction",
+      "project_competency_family",
+      "indicator_thread",
+      "level_anchor",
+      "frozen_activity_contract"
+    ]
+  },
+  "stage_order": [
+    {
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "level": "A2",
+      "previous_stage_id": null
+    },
+    {
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "level": "B1",
+      "previous_stage_id": "STAGE_A2_FOUNDATION"
+    },
+    {
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "level": "B2",
+      "previous_stage_id": "STAGE_B1_INDEPENDENT"
+    }
+  ],
+  "role_legend": {
+    "R": "required",
+    "B": "breadth",
+    "E": "extension"
+  },
+  "evidence_contract": {
+    "gate_status_values": [
+      "not_evidenced",
+      "developing",
+      "stable"
+    ],
+    "primary_result_values": [
+      "met",
+      "not_met",
+      "not_assessable"
+    ],
+    "one_primary_indicator_per_observation": true,
+    "default_observable_indicators_per_gate": 2,
+    "gate_updates_allowed_at": [
+      "cycle_review",
+      "assessment"
+    ],
+    "time_or_cycle_count_promotes_gate": false,
+    "four_skill_average_allowed": false
+  },
+  "families": [
+    {
+      "family_id": "L_INTERACTION",
+      "skill": "listening",
+      "label": "理解多人互动",
+      "cefr_scale_direction": "understanding_interaction_between_other_people",
+      "indicator_threads": [
+        "speaker_intent_tracking",
+        "turn_relation_tracking"
+      ]
+    },
+    {
+      "family_id": "L_ACTION_INFO",
+      "skill": "listening",
+      "label": "理解通知与指令",
+      "cefr_scale_direction": "understanding_announcements_and_instructions",
+      "indicator_threads": [
+        "required_action",
+        "conditions_constraints"
+      ]
+    },
+    {
+      "family_id": "L_EXTENDED",
+      "skill": "listening",
+      "label": "理解延展听力",
+      "cefr_scale_direction": "understanding_audio_media_recordings_and_live_audience",
+      "indicator_threads": [
+        "main_line",
+        "idea_relation"
+      ]
+    },
+    {
+      "family_id": "S_TRANSACTION",
+      "skill": "speaking",
+      "label": "完成事务性口语",
+      "cefr_scale_direction": "goal_oriented_cooperation_and_information_exchange",
+      "indicator_threads": [
+        "goal_completion",
+        "repair_negotiation"
+      ]
+    },
+    {
+      "family_id": "S_CONVERSATION",
+      "skill": "speaking",
+      "label": "参与对话",
+      "cefr_scale_direction": "conversation_and_informal_discussion",
+      "indicator_threads": [
+        "responsive_contribution",
+        "turn_management"
+      ]
+    },
+    {
+      "family_id": "S_EXPLAIN",
+      "skill": "speaking",
+      "label": "口头解释与叙述",
+      "cefr_scale_direction": "sustained_monologue_giving_information",
+      "indicator_threads": [
+        "message_sequence",
+        "detail_development"
+      ]
+    },
+    {
+      "family_id": "S_ARGUMENT",
+      "skill": "speaking",
+      "label": "口头论证",
+      "cefr_scale_direction": "sustained_monologue_putting_a_case",
+      "indicator_threads": [
+        "position_relevance",
+        "support_development"
+      ]
+    },
+    {
+      "family_id": "R_FUNCTIONAL",
+      "skill": "reading",
+      "label": "读取功能性文本",
+      "cefr_scale_direction": "reading_correspondence_instructions_and_orientation",
+      "indicator_threads": [
+        "purpose_action",
+        "constraint_navigation"
+      ]
+    },
+    {
+      "family_id": "R_NARRATIVE",
+      "skill": "reading",
+      "label": "理解叙事文本",
+      "cefr_scale_direction": "reading_as_a_leisure_activity",
+      "indicator_threads": [
+        "event_relation",
+        "attitude_implication"
+      ]
+    },
+    {
+      "family_id": "R_EXPOSITORY",
+      "skill": "reading",
+      "label": "理解说明性文本",
+      "cefr_scale_direction": "reading_for_information_and_argument_information_branch",
+      "indicator_threads": [
+        "main_structure",
+        "detail_relation"
+      ]
+    },
+    {
+      "family_id": "R_ARGUMENT",
+      "skill": "reading",
+      "label": "理解论证性文本",
+      "cefr_scale_direction": "reading_for_information_and_argument_argument_branch",
+      "indicator_threads": [
+        "claim_relation",
+        "evidence_inference"
+      ]
+    },
+    {
+      "family_id": "W_TRANSACTION",
+      "skill": "writing",
+      "label": "事务性写作",
+      "cefr_scale_direction": "written_interaction_correspondence_notes_messages_forms",
+      "indicator_threads": [
+        "communicative_completion",
+        "reader_fit"
+      ]
+    },
+    {
+      "family_id": "W_EXPLAIN",
+      "skill": "writing",
+      "label": "书面解释",
+      "cefr_scale_direction": "written_production_reports_and_essays_explanation_branch",
+      "indicator_threads": [
+        "explanation_sequence",
+        "supporting_detail"
+      ]
+    },
+    {
+      "family_id": "W_ARGUMENT",
+      "skill": "writing",
+      "label": "书面论证",
+      "cefr_scale_direction": "written_production_reports_and_essays_argument_branch",
+      "indicator_threads": [
+        "position_structure",
+        "support_integration"
+      ]
+    },
+    {
+      "family_id": "W_MEDIATE",
+      "skill": "writing",
+      "label": "书面转述与整合",
+      "cefr_scale_direction": "processing_and_relaying_text_in_writing",
+      "indicator_threads": [
+        "source_fidelity",
+        "selection_synthesis"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "family_id": "L_INTERACTION",
+      "gate_id": "L_INTERACTION.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "listening",
+      "level": "A2",
+      "can_do": "能在简短清晰的熟悉对话中辨认说话者的直接目的，并跟住简单回应关系。",
+      "indicator_thread": [
+        "speaker_intent_tracking",
+        "turn_relation_tracking"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_INTERACTION.speaker_intent_tracking.A2",
+          "thread_id": "speaker_intent_tracking",
+          "level_anchor": "从短对话中正确指出至少一名说话者明确想做、需要或决定的事情。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_INTERACTION.turn_relation_tracking.A2",
+          "thread_id": "turn_relation_tracking",
+          "level_anchor": "判断一个轮次是在回答、同意、拒绝还是提出简单请求。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "L_INTERACTION.A2.ANCHOR",
+        "construct": "能在简短清晰的熟悉对话中辨认说话者的直接目的，并跟住简单回应关系。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_interaction_between_other_people",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_INTERACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "speaker_intent_tracking|turn_relation_tracking",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_INTERACTION",
+      "gate_id": "L_INTERACTION.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "listening",
+      "level": "B1",
+      "can_do": "能在清楚的标准语对话中把握主要观点、说话者意图及关键轮次之间的关系。",
+      "indicator_thread": [
+        "speaker_intent_tracking",
+        "turn_relation_tracking"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_INTERACTION.speaker_intent_tracking.B1",
+          "thread_id": "speaker_intent_tracking",
+          "level_anchor": "区分主要说话者的观点或目的，并用相关细节说明判断依据。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_INTERACTION.turn_relation_tracking.B1",
+          "thread_id": "turn_relation_tracking",
+          "level_anchor": "说明关键轮次如何回应、修正或推进前一轮内容。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_INTERACTION.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_INTERACTION.B1.ANCHOR",
+        "construct": "能在清楚的标准语对话中把握主要观点、说话者意图及关键轮次之间的关系。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_interaction_between_other_people",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_INTERACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "speaker_intent_tracking|turn_relation_tracking",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_INTERACTION",
+      "gate_id": "L_INTERACTION.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "listening",
+      "level": "B2",
+      "can_do": "能在较长或多说话者互动中跟踪立场变化、隐含意图以及轮次间的推进或冲突。",
+      "indicator_thread": [
+        "speaker_intent_tracking",
+        "turn_relation_tracking"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_INTERACTION.speaker_intent_tracking.B2",
+          "thread_id": "speaker_intent_tracking",
+          "level_anchor": "区分显性立场与隐含态度，说明说话者立场的变化或限定。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_INTERACTION.turn_relation_tracking.B2",
+          "thread_id": "turn_relation_tracking",
+          "level_anchor": "解释多个轮次如何共同形成协商、转折、保留或最终决定。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_INTERACTION.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_INTERACTION.B2.ANCHOR",
+        "construct": "能在较长或多说话者互动中跟踪立场变化、隐含意图以及轮次间的推进或冲突。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_interaction_between_other_people",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_INTERACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "speaker_intent_tracking|turn_relation_tracking",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_ACTION_INFO",
+      "gate_id": "L_ACTION_INFO.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "listening",
+      "level": "A2",
+      "can_do": "能从短而明确的通知或指令中提取要做的事及基本时间、地点信息。",
+      "indicator_thread": [
+        "required_action",
+        "conditions_constraints"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_ACTION_INFO.required_action.A2",
+          "thread_id": "required_action",
+          "level_anchor": "准确说出核心行动以及直接相关的时间或地点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_ACTION_INFO.conditions_constraints.A2",
+          "thread_id": "conditions_constraints",
+          "level_anchor": "识别一个明确的允许、禁止、截止或前置条件。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "L_ACTION_INFO.A2.ANCHOR",
+        "construct": "能从短而明确的通知或指令中提取要做的事及基本时间、地点信息。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_announcements_and_instructions",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_ACTION_INFO",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "required_action|conditions_constraints",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_ACTION_INFO",
+      "gate_id": "L_ACTION_INFO.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "listening",
+      "level": "B1",
+      "can_do": "能从清楚的通知或多步指令中整合行动顺序、条件和例外。",
+      "indicator_thread": [
+        "required_action",
+        "conditions_constraints"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_ACTION_INFO.required_action.B1",
+          "thread_id": "required_action",
+          "level_anchor": "按正确顺序复原主要步骤，并保留行动主体和关键细节。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_ACTION_INFO.conditions_constraints.B1",
+          "thread_id": "conditions_constraints",
+          "level_anchor": "整合两个以上条件、例外或限制而不相互混淆。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_ACTION_INFO.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_ACTION_INFO.B1.ANCHOR",
+        "construct": "能从清楚的通知或多步指令中整合行动顺序、条件和例外。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_announcements_and_instructions",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_ACTION_INFO",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "required_action|conditions_constraints",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_ACTION_INFO",
+      "gate_id": "L_ACTION_INFO.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "listening",
+      "level": "B2",
+      "can_do": "能从较密集或延展的指令信息中区分优先事项、限制、条件分支和后果。",
+      "indicator_thread": [
+        "required_action",
+        "conditions_constraints"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_ACTION_INFO.required_action.B2",
+          "thread_id": "required_action",
+          "level_anchor": "区分必须、建议和可选行动，并说明其先后或依赖关系。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_ACTION_INFO.conditions_constraints.B2",
+          "thread_id": "conditions_constraints",
+          "level_anchor": "解释条件分支、优先级或未遵守限制时的隐含后果。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_ACTION_INFO.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_ACTION_INFO.B2.ANCHOR",
+        "construct": "能从较密集或延展的指令信息中区分优先事项、限制、条件分支和后果。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_announcements_and_instructions",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_ACTION_INFO",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "required_action|conditions_constraints",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_EXTENDED",
+      "gate_id": "L_EXTENDED.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "listening",
+      "level": "A2",
+      "can_do": "能理解短录音的主题、主要信息和一个明确细节。",
+      "indicator_thread": [
+        "main_line",
+        "idea_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_EXTENDED.main_line.A2",
+          "thread_id": "main_line",
+          "level_anchor": "用一句话概括短录音主题和主要信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_EXTENDED.idea_relation.A2",
+          "thread_id": "idea_relation",
+          "level_anchor": "把一个明确细节正确连接到对应主题或事件。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "L_EXTENDED.A2.ANCHOR",
+        "construct": "能理解短录音的主题、主要信息和一个明确细节。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_audio_media_recordings_and_live_audience",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_EXTENDED",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_line|idea_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_EXTENDED",
+      "gate_id": "L_EXTENDED.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "listening",
+      "level": "B1",
+      "can_do": "能跟住清楚标准语录音的主线，并连接关键观点、例子和相关细节。",
+      "indicator_thread": [
+        "main_line",
+        "idea_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_EXTENDED.main_line.B1",
+          "thread_id": "main_line",
+          "level_anchor": "按合理顺序复述主线，保留关键阶段或观点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_EXTENDED.idea_relation.B1",
+          "thread_id": "idea_relation",
+          "level_anchor": "说明原因、结果、对比或例子与主线的关系。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_EXTENDED.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_EXTENDED.B1.ANCHOR",
+        "construct": "能跟住清楚标准语录音的主线，并连接关键观点、例子和相关细节。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_audio_media_recordings_and_live_audience",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_EXTENDED",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_line|idea_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "L_EXTENDED",
+      "gate_id": "L_EXTENDED.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "listening",
+      "level": "B2",
+      "can_do": "能理解较长解释或论述的结构、隐含连接、说话者立场和重要限定。",
+      "indicator_thread": [
+        "main_line",
+        "idea_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "L_EXTENDED.main_line.B2",
+          "thread_id": "main_line",
+          "level_anchor": "概括延展内容的结构与中心发展，不被次要细节带偏。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "L_EXTENDED.idea_relation.B2",
+          "thread_id": "idea_relation",
+          "level_anchor": "解释跨段隐含关系、限定或说话者如何组织论述。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "L_EXTENDED.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "L_EXTENDED.B2.ANCHOR",
+        "construct": "能理解较长解释或论述的结构、隐含连接、说话者立场和重要限定。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "understanding_audio_media_recordings_and_live_audience",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "L_EXTENDED",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_line|idea_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_TRANSACTION",
+      "gate_id": "S_TRANSACTION.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "speaking",
+      "level": "A2",
+      "can_do": "能在可预期的简单交换中说明需要、提供基本信息并完成直接目的。",
+      "indicator_thread": [
+        "goal_completion",
+        "repair_negotiation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_TRANSACTION.goal_completion.A2",
+          "thread_id": "goal_completion",
+          "level_anchor": "表达一个明确请求或需要，并给出完成交换所需的基本信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_TRANSACTION.repair_negotiation.A2",
+          "thread_id": "repair_negotiation",
+          "level_anchor": "遇到不理解时能请求重复或作简单澄清。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "S_TRANSACTION.A2.ANCHOR",
+        "construct": "能在可预期的简单交换中说明需要、提供基本信息并完成直接目的。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "goal_oriented_cooperation_and_information_exchange",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "goal_completion|repair_negotiation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_TRANSACTION",
+      "gate_id": "S_TRANSACTION.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "speaking",
+      "level": "B1",
+      "can_do": "能在常见问题或信息交换中解释约束、协商处理办法并推进目标。",
+      "indicator_thread": [
+        "goal_completion",
+        "repair_negotiation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_TRANSACTION.goal_completion.B1",
+          "thread_id": "goal_completion",
+          "level_anchor": "说明目的、相关原因和限制，最终提出或确认可执行行动。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_TRANSACTION.repair_negotiation.B1",
+          "thread_id": "repair_negotiation",
+          "level_anchor": "能指出误解、改述关键信息并协商一个替代办法。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_TRANSACTION.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_TRANSACTION.B1.ANCHOR",
+        "construct": "能在常见问题或信息交换中解释约束、协商处理办法并推进目标。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "goal_oriented_cooperation_and_information_exchange",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "goal_completion|repair_negotiation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_TRANSACTION",
+      "gate_id": "S_TRANSACTION.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "speaking",
+      "level": "B2",
+      "can_do": "能合作处理较复杂的事务，澄清含糊条件、比较选项并达成可执行结果。",
+      "indicator_thread": [
+        "goal_completion",
+        "repair_negotiation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_TRANSACTION.goal_completion.B2",
+          "thread_id": "goal_completion",
+          "level_anchor": "在多个条件或选项下组织信息并推动双方形成明确结果。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_TRANSACTION.repair_negotiation.B2",
+          "thread_id": "repair_negotiation",
+          "level_anchor": "主动定位歧义、检验共同理解并协调相互冲突的约束。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_TRANSACTION.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_TRANSACTION.B2.ANCHOR",
+        "construct": "能合作处理较复杂的事务，澄清含糊条件、比较选项并达成可执行结果。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "goal_oriented_cooperation_and_information_exchange",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "goal_completion|repair_negotiation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_CONVERSATION",
+      "gate_id": "S_CONVERSATION.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "speaking",
+      "level": "A2",
+      "can_do": "能在熟悉话题中作简短相关回应，并维持几个可预期轮次。",
+      "indicator_thread": [
+        "responsive_contribution",
+        "turn_management"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_CONVERSATION.responsive_contribution.A2",
+          "thread_id": "responsive_contribution",
+          "level_anchor": "回答与上一轮直接相关，并补充一个简单事实、感受或意见。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_CONVERSATION.turn_management.A2",
+          "thread_id": "turn_management",
+          "level_anchor": "能开始、接续和结束简短轮次，必要时发出简单不理解信号。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "S_CONVERSATION.A2.ANCHOR",
+        "construct": "能在熟悉话题中作简短相关回应，并维持几个可预期轮次。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "conversation_and_informal_discussion",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_CONVERSATION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "responsive_contribution|turn_management",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_CONVERSATION",
+      "gate_id": "S_CONVERSATION.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "speaking",
+      "level": "B1",
+      "can_do": "能在熟悉或一般话题中主动回应、补充观点并维持连贯讨论。",
+      "indicator_thread": [
+        "responsive_contribution",
+        "turn_management"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_CONVERSATION.responsive_contribution.B1",
+          "thread_id": "responsive_contribution",
+          "level_anchor": "回应对方具体观点，同时加入相关理由、例子或追问。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_CONVERSATION.turn_management.B1",
+          "thread_id": "turn_management",
+          "level_anchor": "能适时取得、保持或让出话轮，并用澄清维持互动。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_CONVERSATION.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_CONVERSATION.B1.ANCHOR",
+        "construct": "能在熟悉或一般话题中主动回应、补充观点并维持连贯讨论。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "conversation_and_informal_discussion",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_CONVERSATION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "responsive_contribution|turn_management",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_CONVERSATION",
+      "gate_id": "S_CONVERSATION.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "speaking",
+      "level": "B2",
+      "can_do": "能灵活参与延展对话，发展他人观点、处理话题转移并修复互动。",
+      "indicator_thread": [
+        "responsive_contribution",
+        "turn_management"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_CONVERSATION.responsive_contribution.B2",
+          "thread_id": "responsive_contribution",
+          "level_anchor": "综合或挑战他人观点，并用恰当限定推动讨论发展。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_CONVERSATION.turn_management.B2",
+          "thread_id": "turn_management",
+          "level_anchor": "能管理较长互动中的话题转换、回指和协商性修复。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_CONVERSATION.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_CONVERSATION.B2.ANCHOR",
+        "construct": "能灵活参与延展对话，发展他人观点、处理话题转移并修复互动。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "conversation_and_informal_discussion",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_CONVERSATION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "responsive_contribution|turn_management",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_EXPLAIN",
+      "gate_id": "S_EXPLAIN.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "speaking",
+      "level": "A2",
+      "can_do": "能用相连的简单句描述熟悉经历、过程或事物。",
+      "indicator_thread": [
+        "message_sequence",
+        "detail_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_EXPLAIN.message_sequence.A2",
+          "thread_id": "message_sequence",
+          "level_anchor": "按基本时间或步骤顺序表达至少两个相连信息点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_EXPLAIN.detail_development.A2",
+          "thread_id": "detail_development",
+          "level_anchor": "为主信息补充一个具体、相关且可理解的细节。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "S_EXPLAIN.A2.ANCHOR",
+        "construct": "能用相连的简单句描述熟悉经历、过程或事物。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_giving_information",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "message_sequence|detail_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_EXPLAIN",
+      "gate_id": "S_EXPLAIN.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "speaking",
+      "level": "B1",
+      "can_do": "能作连贯解释，明确主线、顺序并补充相关细节。",
+      "indicator_thread": [
+        "message_sequence",
+        "detail_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_EXPLAIN.message_sequence.B1",
+          "thread_id": "message_sequence",
+          "level_anchor": "使用清楚的开端、发展和结尾组织解释或复述。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_EXPLAIN.detail_development.B1",
+          "thread_id": "detail_development",
+          "level_anchor": "用多个相关细节或例子充分支持主要信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_EXPLAIN.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_EXPLAIN.B1.ANCHOR",
+        "construct": "能作连贯解释，明确主线、顺序并补充相关细节。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_giving_information",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "message_sequence|detail_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_EXPLAIN",
+      "gate_id": "S_EXPLAIN.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "speaking",
+      "level": "B2",
+      "can_do": "能作清晰延展的解释，安排信息层级、展开例证并适应听者。",
+      "indicator_thread": [
+        "message_sequence",
+        "detail_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_EXPLAIN.message_sequence.B2",
+          "thread_id": "message_sequence",
+          "level_anchor": "按目的选择合适结构，并清楚标示层级、转折或因果链。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_EXPLAIN.detail_development.B2",
+          "thread_id": "detail_development",
+          "level_anchor": "选择、压缩并展开细节，使不同背景的听者仍能跟上。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_EXPLAIN.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_EXPLAIN.B2.ANCHOR",
+        "construct": "能作清晰延展的解释，安排信息层级、展开例证并适应听者。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_giving_information",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "message_sequence|detail_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_ARGUMENT",
+      "gate_id": "S_ARGUMENT.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "speaking",
+      "level": "A2",
+      "can_do": "能就熟悉问题表达偏好，并给出一个简单理由或例子。",
+      "indicator_thread": [
+        "position_relevance",
+        "support_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_ARGUMENT.position_relevance.A2",
+          "thread_id": "position_relevance",
+          "level_anchor": "直接回答问题并保持一个明确偏好或立场。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_ARGUMENT.support_development.A2",
+          "thread_id": "support_development",
+          "level_anchor": "提供一个与立场直接相关的理由或例子。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "S_ARGUMENT.A2.ANCHOR",
+        "construct": "能就熟悉问题表达偏好，并给出一个简单理由或例子。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "E"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_putting_a_case",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_relevance|support_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_ARGUMENT",
+      "gate_id": "S_ARGUMENT.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "speaking",
+      "level": "B1",
+      "can_do": "能清楚表达立场，用相连理由和例子展开，并回应一个简单替代观点。",
+      "indicator_thread": [
+        "position_relevance",
+        "support_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_ARGUMENT.position_relevance.B1",
+          "thread_id": "position_relevance",
+          "level_anchor": "立场贯穿回答，所有主要内容与问题和立场相关。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_ARGUMENT.support_development.B1",
+          "thread_id": "support_development",
+          "level_anchor": "用至少两个相互连接的理由、例子或后果发展立场。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_ARGUMENT.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_ARGUMENT.B1.ANCHOR",
+        "construct": "能清楚表达立场，用相连理由和例子展开，并回应一个简单替代观点。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_putting_a_case",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_relevance|support_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "S_ARGUMENT",
+      "gate_id": "S_ARGUMENT.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "speaking",
+      "level": "B2",
+      "can_do": "能持续提出有层次的论证，结合依据、限定和反方观点形成结论。",
+      "indicator_thread": [
+        "position_relevance",
+        "support_development"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "S_ARGUMENT.position_relevance.B2",
+          "thread_id": "position_relevance",
+          "level_anchor": "提出有条件或有层次的立场，并在复杂讨论中保持焦点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "S_ARGUMENT.support_development.B2",
+          "thread_id": "support_development",
+          "level_anchor": "整合理由、证据、限定和反方考虑，说明它们对结论的权重。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "S_ARGUMENT.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "S_ARGUMENT.B2.ANCHOR",
+        "construct": "能持续提出有层次的论证，结合依据、限定和反方观点形成结论。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "sustained_monologue_putting_a_case",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "S_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_relevance|support_development",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_FUNCTIONAL",
+      "gate_id": "R_FUNCTIONAL.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "reading",
+      "level": "A2",
+      "can_do": "能从短通知、消息或简单说明中定位目的、行动和直接条件。",
+      "indicator_thread": [
+        "purpose_action",
+        "constraint_navigation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_FUNCTIONAL.purpose_action.A2",
+          "thread_id": "purpose_action",
+          "level_anchor": "准确指出文本为何而写以及读者要做的一项行动。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_FUNCTIONAL.constraint_navigation.A2",
+          "thread_id": "constraint_navigation",
+          "level_anchor": "定位一个日期、地点、禁止或资格条件。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "R_FUNCTIONAL.A2.ANCHOR",
+        "construct": "能从短通知、消息或简单说明中定位目的、行动和直接条件。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_correspondence_instructions_and_orientation",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_FUNCTIONAL",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "purpose_action|constraint_navigation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_FUNCTIONAL",
+      "gate_id": "R_FUNCTIONAL.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "reading",
+      "level": "B1",
+      "can_do": "能浏览较长的通信或说明，确定目的、所需步骤和多个相关条件。",
+      "indicator_thread": [
+        "purpose_action",
+        "constraint_navigation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_FUNCTIONAL.purpose_action.B1",
+          "thread_id": "purpose_action",
+          "level_anchor": "概括交际目的并按顺序列出关键行动或选择。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_FUNCTIONAL.constraint_navigation.B1",
+          "thread_id": "constraint_navigation",
+          "level_anchor": "整合分散在不同句段的条件、例外或截止信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_FUNCTIONAL.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_FUNCTIONAL.B1.ANCHOR",
+        "construct": "能浏览较长的通信或说明，确定目的、所需步骤和多个相关条件。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_correspondence_instructions_and_orientation",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_FUNCTIONAL",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "purpose_action|constraint_navigation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_FUNCTIONAL",
+      "gate_id": "R_FUNCTIONAL.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "reading",
+      "level": "B2",
+      "can_do": "能解释复杂功能文本中的优先级、限定、隐含后果和相互参照。",
+      "indicator_thread": [
+        "purpose_action",
+        "constraint_navigation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_FUNCTIONAL.purpose_action.B2",
+          "thread_id": "purpose_action",
+          "level_anchor": "区分主要目的、次要目的与不同读者的责任。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_FUNCTIONAL.constraint_navigation.B2",
+          "thread_id": "constraint_navigation",
+          "level_anchor": "解释限定条款、优先级和条件组合对行动的影响。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_FUNCTIONAL.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_FUNCTIONAL.B2.ANCHOR",
+        "construct": "能解释复杂功能文本中的优先级、限定、隐含后果和相互参照。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_correspondence_instructions_and_orientation",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_FUNCTIONAL",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "purpose_action|constraint_navigation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_NARRATIVE",
+      "gate_id": "R_NARRATIVE.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "reading",
+      "level": "A2",
+      "can_do": "能跟住短而清楚的叙事主线、主要人物和显性感受。",
+      "indicator_thread": [
+        "event_relation",
+        "attitude_implication"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_NARRATIVE.event_relation.A2",
+          "thread_id": "event_relation",
+          "level_anchor": "按正确顺序识别主要事件及参与人物。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_NARRATIVE.attitude_implication.A2",
+          "thread_id": "attitude_implication",
+          "level_anchor": "从明确词句识别人物的基本感受或态度。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "R_NARRATIVE.A2.ANCHOR",
+        "construct": "能跟住短而清楚的叙事主线、主要人物和显性感受。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_as_a_leisure_activity",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_NARRATIVE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "event_relation|attitude_implication",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_NARRATIVE",
+      "gate_id": "R_NARRATIVE.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "reading",
+      "level": "B1",
+      "can_do": "能理解事件之间的关系、人物动机，并作直接的态度推断。",
+      "indicator_thread": [
+        "event_relation",
+        "attitude_implication"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_NARRATIVE.event_relation.B1",
+          "thread_id": "event_relation",
+          "level_anchor": "说明关键事件之间的原因、结果或动机联系。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_NARRATIVE.attitude_implication.B1",
+          "thread_id": "attitude_implication",
+          "level_anchor": "用文本线索支持一个直接的动机或态度推断。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_NARRATIVE.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_NARRATIVE.B1.ANCHOR",
+        "construct": "能理解事件之间的关系、人物动机，并作直接的态度推断。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_as_a_leisure_activity",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_NARRATIVE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "event_relation|attitude_implication",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_NARRATIVE",
+      "gate_id": "R_NARRATIVE.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "reading",
+      "level": "B2",
+      "can_do": "能解释时间或视角变化、隐含态度以及细节对整体意义的作用。",
+      "indicator_thread": [
+        "event_relation",
+        "attitude_implication"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_NARRATIVE.event_relation.B2",
+          "thread_id": "event_relation",
+          "level_anchor": "解释非线性顺序、视角变化或多个事件线如何汇合。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_NARRATIVE.attitude_implication.B2",
+          "thread_id": "attitude_implication",
+          "level_anchor": "结合语气、选择性细节或反差解释隐含态度和意义。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_NARRATIVE.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_NARRATIVE.B2.ANCHOR",
+        "construct": "能解释时间或视角变化、隐含态度以及细节对整体意义的作用。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_as_a_leisure_activity",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_NARRATIVE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "event_relation|attitude_implication",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_EXPOSITORY",
+      "gate_id": "R_EXPOSITORY.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "reading",
+      "level": "A2",
+      "can_do": "能识别短说明文本的主题、主旨和一个明确支持细节。",
+      "indicator_thread": [
+        "main_structure",
+        "detail_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_EXPOSITORY.main_structure.A2",
+          "thread_id": "main_structure",
+          "level_anchor": "选出或复述文本的主题和主要信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_EXPOSITORY.detail_relation.A2",
+          "thread_id": "detail_relation",
+          "level_anchor": "把一个明确事实或例子连接到正确主旨。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "R_EXPOSITORY.A2.ANCHOR",
+        "construct": "能识别短说明文本的主题、主旨和一个明确支持细节。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_information_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_EXPOSITORY",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_structure|detail_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_EXPOSITORY",
+      "gate_id": "R_EXPOSITORY.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "reading",
+      "level": "B1",
+      "can_do": "能识别清楚说明文本的结构，并连接主旨、关键细节和例子。",
+      "indicator_thread": [
+        "main_structure",
+        "detail_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_EXPOSITORY.main_structure.B1",
+          "thread_id": "main_structure",
+          "level_anchor": "划分主要部分并说明每部分如何服务整体说明。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_EXPOSITORY.detail_relation.B1",
+          "thread_id": "detail_relation",
+          "level_anchor": "解释定义、例子、原因或结果与相应观点的关系。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_EXPOSITORY.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_EXPOSITORY.B1.ANCHOR",
+        "construct": "能识别清楚说明文本的结构，并连接主旨、关键细节和例子。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_information_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_EXPOSITORY",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_structure|detail_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_EXPOSITORY",
+      "gate_id": "R_EXPOSITORY.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "reading",
+      "level": "B2",
+      "can_do": "能处理较长或较复杂的说明，区分信息层级并综合分散内容。",
+      "indicator_thread": [
+        "main_structure",
+        "detail_relation"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_EXPOSITORY.main_structure.B2",
+          "thread_id": "main_structure",
+          "level_anchor": "概括复杂结构，区分核心线索、支线和作者组织策略。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_EXPOSITORY.detail_relation.B2",
+          "thread_id": "detail_relation",
+          "level_anchor": "综合跨段信息，处理限定、分类和隐含连接。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_EXPOSITORY.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_EXPOSITORY.B2.ANCHOR",
+        "construct": "能处理较长或较复杂的说明，区分信息层级并综合分散内容。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_information_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_EXPOSITORY",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "main_structure|detail_relation",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_ARGUMENT",
+      "gate_id": "R_ARGUMENT.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "reading",
+      "level": "A2",
+      "can_do": "能在短而简单的观点文本中找出明示主张和一个理由。",
+      "indicator_thread": [
+        "claim_relation",
+        "evidence_inference"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_ARGUMENT.claim_relation.A2",
+          "thread_id": "claim_relation",
+          "level_anchor": "指出作者明确支持或反对什么，并匹配一个理由。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_ARGUMENT.evidence_inference.A2",
+          "thread_id": "evidence_inference",
+          "level_anchor": "从一句明确证据得出文本直接支持的结论。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "R_ARGUMENT.A2.ANCHOR",
+        "construct": "能在短而简单的观点文本中找出明示主张和一个理由。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "E"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "claim_relation|evidence_inference",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_ARGUMENT",
+      "gate_id": "R_ARGUMENT.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "reading",
+      "level": "B1",
+      "can_do": "能区分主要主张、理由、例子，并作直接推断。",
+      "indicator_thread": [
+        "claim_relation",
+        "evidence_inference"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_ARGUMENT.claim_relation.B1",
+          "thread_id": "claim_relation",
+          "level_anchor": "区分主张、理由和例子，说明它们如何构成基本论证。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_ARGUMENT.evidence_inference.B1",
+          "thread_id": "evidence_inference",
+          "level_anchor": "判断某细节支持哪一主张，并作一个有文本依据的推断。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_ARGUMENT.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_ARGUMENT.B1.ANCHOR",
+        "construct": "能区分主要主张、理由、例子，并作直接推断。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "claim_relation|evidence_inference",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "R_ARGUMENT",
+      "gate_id": "R_ARGUMENT.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "reading",
+      "level": "B2",
+      "can_do": "能分析主张与证据的力度、假设、限定、反方位置和隐含结论。",
+      "indicator_thread": [
+        "claim_relation",
+        "evidence_inference"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "R_ARGUMENT.claim_relation.B2",
+          "thread_id": "claim_relation",
+          "level_anchor": "解释多个主张、限定和反方观点之间的层级或冲突。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "R_ARGUMENT.evidence_inference.B2",
+          "thread_id": "evidence_inference",
+          "level_anchor": "评价证据相关性，识别未明说的假设或合理隐含结论。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "R_ARGUMENT.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "R_ARGUMENT.B2.ANCHOR",
+        "construct": "能分析主张与证据的力度、假设、限定、反方位置和隐含结论。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "reading_for_information_and_argument_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "R_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "claim_relation|evidence_inference",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_TRANSACTION",
+      "gate_id": "W_TRANSACTION.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "writing",
+      "level": "A2",
+      "can_do": "能写简短消息，说明目的、必要细节并使用基本合适的语气。",
+      "indicator_thread": [
+        "communicative_completion",
+        "reader_fit"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_TRANSACTION.communicative_completion.A2",
+          "thread_id": "communicative_completion",
+          "level_anchor": "写明目的以及收件人完成交流所需的基本信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_TRANSACTION.reader_fit.A2",
+          "thread_id": "reader_fit",
+          "level_anchor": "称呼、直接程度和礼貌形式适合熟悉的简单场景。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "W_TRANSACTION.A2.ANCHOR",
+        "construct": "能写简短消息，说明目的、必要细节并使用基本合适的语气。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_interaction_correspondence_notes_messages_forms",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "communicative_completion|reader_fit",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_TRANSACTION",
+      "gate_id": "W_TRANSACTION.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "writing",
+      "level": "B1",
+      "can_do": "能写连贯邮件或消息，完成请求、说明、理由和后续行动。",
+      "indicator_thread": [
+        "communicative_completion",
+        "reader_fit"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_TRANSACTION.communicative_completion.B1",
+          "thread_id": "communicative_completion",
+          "level_anchor": "覆盖目的、相关背景或理由、明确请求和下一步。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_TRANSACTION.reader_fit.B1",
+          "thread_id": "reader_fit",
+          "level_anchor": "根据关系和目的选择一致、清楚且得体的语气。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_TRANSACTION.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_TRANSACTION.B1.ANCHOR",
+        "construct": "能写连贯邮件或消息，完成请求、说明、理由和后续行动。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_interaction_correspondence_notes_messages_forms",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "communicative_completion|reader_fit",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_TRANSACTION",
+      "gate_id": "W_TRANSACTION.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "writing",
+      "level": "B2",
+      "can_do": "能处理较复杂通信，按优先级组织信息并精确调整语气、限定和行动。",
+      "indicator_thread": [
+        "communicative_completion",
+        "reader_fit"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_TRANSACTION.communicative_completion.B2",
+          "thread_id": "communicative_completion",
+          "level_anchor": "在多个问题或限制下完整处理行动、责任、替代方案和跟进。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_TRANSACTION.reader_fit.B2",
+          "thread_id": "reader_fit",
+          "level_anchor": "通过信息顺序、限定和礼貌策略适应不同读者及敏感情境。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_TRANSACTION.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_TRANSACTION.B2.ANCHOR",
+        "construct": "能处理较复杂通信，按优先级组织信息并精确调整语气、限定和行动。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_interaction_correspondence_notes_messages_forms",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_TRANSACTION",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "communicative_completion|reader_fit",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_EXPLAIN",
+      "gate_id": "W_EXPLAIN.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "writing",
+      "level": "A2",
+      "can_do": "能用相连的简单句解释熟悉事件、过程或事物。",
+      "indicator_thread": [
+        "explanation_sequence",
+        "supporting_detail"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_EXPLAIN.explanation_sequence.A2",
+          "thread_id": "explanation_sequence",
+          "level_anchor": "按时间、步骤或简单因果连接至少两个信息点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_EXPLAIN.supporting_detail.A2",
+          "thread_id": "supporting_detail",
+          "level_anchor": "补充一个具体且与主要解释直接相关的细节。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "W_EXPLAIN.A2.ANCHOR",
+        "construct": "能用相连的简单句解释熟悉事件、过程或事物。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_explanation_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "explanation_sequence|supporting_detail",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_EXPLAIN",
+      "gate_id": "W_EXPLAIN.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "writing",
+      "level": "B1",
+      "can_do": "能写结构清楚的段落或短文，按逻辑顺序解释并提供相关细节。",
+      "indicator_thread": [
+        "explanation_sequence",
+        "supporting_detail"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_EXPLAIN.explanation_sequence.B1",
+          "thread_id": "explanation_sequence",
+          "level_anchor": "使用明确主线和段落顺序完成完整解释。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_EXPLAIN.supporting_detail.B1",
+          "thread_id": "supporting_detail",
+          "level_anchor": "用相关事实、例子或原因充分发展各主要部分。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_EXPLAIN.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_EXPLAIN.B1.ANCHOR",
+        "construct": "能写结构清楚的段落或短文，按逻辑顺序解释并提供相关细节。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_explanation_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "explanation_sequence|supporting_detail",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_EXPLAIN",
+      "gate_id": "W_EXPLAIN.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "writing",
+      "level": "B2",
+      "can_do": "能写清晰延展的解释，安排层级、例证和衔接以适应读者。",
+      "indicator_thread": [
+        "explanation_sequence",
+        "supporting_detail"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_EXPLAIN.explanation_sequence.B2",
+          "thread_id": "explanation_sequence",
+          "level_anchor": "选择适合目的的结构并稳定管理层级、回指和过渡。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_EXPLAIN.supporting_detail.B2",
+          "thread_id": "supporting_detail",
+          "level_anchor": "选择并综合细节，在充分性、精确性和篇幅之间取得平衡。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_EXPLAIN.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_EXPLAIN.B2.ANCHOR",
+        "construct": "能写清晰延展的解释，安排层级、例证和衔接以适应读者。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_explanation_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_EXPLAIN",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "explanation_sequence|supporting_detail",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_ARGUMENT",
+      "gate_id": "W_ARGUMENT.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "writing",
+      "level": "A2",
+      "can_do": "能写出简短观点，并给出一个简单理由或例子。",
+      "indicator_thread": [
+        "position_structure",
+        "support_integration"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_ARGUMENT.position_structure.A2",
+          "thread_id": "position_structure",
+          "level_anchor": "在开头或结尾清楚表达一个与题目相关的观点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_ARGUMENT.support_integration.A2",
+          "thread_id": "support_integration",
+          "level_anchor": "加入一个能直接支持观点的理由或例子。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "W_ARGUMENT.A2.ANCHOR",
+        "construct": "能写出简短观点，并给出一个简单理由或例子。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "E"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_structure|support_integration",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_ARGUMENT",
+      "gate_id": "W_ARGUMENT.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "writing",
+      "level": "B1",
+      "can_do": "能组织清楚立场，以相连理由和例子形成短论证。",
+      "indicator_thread": [
+        "position_structure",
+        "support_integration"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_ARGUMENT.position_structure.B1",
+          "thread_id": "position_structure",
+          "level_anchor": "保持明确立场，并用有序段落发展主要理由。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_ARGUMENT.support_integration.B1",
+          "thread_id": "support_integration",
+          "level_anchor": "把多个理由和例子连接到相应主张，而非简单罗列。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_ARGUMENT.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_ARGUMENT.B1.ANCHOR",
+        "construct": "能组织清楚立场，以相连理由和例子形成短论证。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_structure|support_integration",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_ARGUMENT",
+      "gate_id": "W_ARGUMENT.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "writing",
+      "level": "B2",
+      "can_do": "能发展有层次的论证，整合依据、限定、反方观点和结论。",
+      "indicator_thread": [
+        "position_structure",
+        "support_integration"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_ARGUMENT.position_structure.B2",
+          "thread_id": "position_structure",
+          "level_anchor": "组织主张、限定、反方回应和结论，使论证层级清楚。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_ARGUMENT.support_integration.B2",
+          "thread_id": "support_integration",
+          "level_anchor": "综合证据、解释其相关性，并公平处理反例或限制。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_ARGUMENT.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_ARGUMENT.B2.ANCHOR",
+        "construct": "能发展有层次的论证，整合依据、限定、反方观点和结论。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "written_production_reports_and_essays_argument_branch",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_ARGUMENT",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "position_structure|support_integration",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_MEDIATE",
+      "gate_id": "W_MEDIATE.A2",
+      "stage_id": "STAGE_A2_FOUNDATION",
+      "skill": "writing",
+      "level": "A2",
+      "can_do": "能用简单语言转述短来源中的少量明确信息。",
+      "indicator_thread": [
+        "source_fidelity",
+        "selection_synthesis"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_MEDIATE.source_fidelity.A2",
+          "thread_id": "source_fidelity",
+          "level_anchor": "转述的关键事实与短来源一致，不添加相反信息。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_MEDIATE.selection_synthesis.A2",
+          "thread_id": "selection_synthesis",
+          "level_anchor": "选择与给定目的直接相关的一到两个信息点。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [],
+      "anchor": {
+        "anchor_id": "W_MEDIATE.A2.ANCHOR",
+        "construct": "能用简单语言转述短来源中的少量明确信息。",
+        "conditions": {
+          "context": "familiar, concrete, and predictable",
+          "span": "short",
+          "language": "clear, frequent, and mostly explicit",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "E"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "processing_and_relaying_text_in_writing",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_MEDIATE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "source_fidelity|selection_synthesis",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_MEDIATE",
+      "gate_id": "W_MEDIATE.B1",
+      "stage_id": "STAGE_B1_INDEPENDENT",
+      "skill": "writing",
+      "level": "B1",
+      "can_do": "能选择并重组清楚来源的主要信息，同时保持核心含义和出处边界。",
+      "indicator_thread": [
+        "source_fidelity",
+        "selection_synthesis"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_MEDIATE.source_fidelity.B1",
+          "thread_id": "source_fidelity",
+          "level_anchor": "准确保留主要观点、归属和重要限定。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_MEDIATE.selection_synthesis.B1",
+          "thread_id": "selection_synthesis",
+          "level_anchor": "围绕目的重组多个相关信息点，而非逐句复制。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_MEDIATE.A2",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_MEDIATE.B1.ANCHOR",
+        "construct": "能选择并重组清楚来源的主要信息，同时保持核心含义和出处边界。",
+        "conditions": {
+          "context": "familiar or broadly accessible",
+          "span": "moderate and connected",
+          "language": "clear standard language with relevant detail",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "B"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "processing_and_relaying_text_in_writing",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_MEDIATE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "source_fidelity|selection_synthesis",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    },
+    {
+      "family_id": "W_MEDIATE",
+      "gate_id": "W_MEDIATE.B2",
+      "stage_id": "STAGE_B2_FLEXIBLE",
+      "skill": "writing",
+      "level": "B2",
+      "can_do": "能综合相关或存在差异的来源，保留立场、确定性和对目标读者重要的差别。",
+      "indicator_thread": [
+        "source_fidelity",
+        "selection_synthesis"
+      ],
+      "observable_indicator": [
+        {
+          "indicator_id": "W_MEDIATE.source_fidelity.B2",
+          "thread_id": "source_fidelity",
+          "level_anchor": "区分来源立场、事实与不确定性，避免把推断写成来源原意。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        },
+        {
+          "indicator_id": "W_MEDIATE.selection_synthesis.B2",
+          "thread_id": "selection_synthesis",
+          "level_anchor": "跨来源整合一致与分歧信息，并按读者需要压缩和组织。",
+          "result_values": [
+            "met",
+            "not_met",
+            "not_assessable"
+          ]
+        }
+      ],
+      "prerequisites": [
+        {
+          "gate_id": "W_MEDIATE.B1",
+          "minimum_status": "stable",
+          "rationale": "same-family lower anchor"
+        }
+      ],
+      "anchor": {
+        "anchor_id": "W_MEDIATE.B2.ANCHOR",
+        "construct": "能综合相关或存在差异的来源，保留立场、确定性和对目标读者重要的差别。",
+        "conditions": {
+          "context": "concrete or abstract and not wholly predictable",
+          "span": "extended or information-dense",
+          "language": "standard language with implicit, qualified, or competing relations",
+          "access": "frozen normal access only; no answer-revealing support"
+        },
+        "success_boundary": "Both observable indicators require sufficient valid, comparable direct evidence under the frozen activity contract; one answer never stabilizes a gate.",
+        "non_evidence": [
+          "training",
+          "guided",
+          "revised",
+          "answer_exposed",
+          "invalid",
+          "non_comparable",
+          "secondary_only",
+          "review_only"
+        ],
+        "project_operationalization": true
+      },
+      "evidence_roles": [
+        "R"
+      ],
+      "source_chain": [
+        {
+          "source_id": "CEFR-CV-2020",
+          "scale_id": "processing_and_relaying_text_in_writing",
+          "use": "scale_and_level_direction"
+        },
+        {
+          "source_id": "PROJECT-COMPETENCY-FAMILY-1.0.0",
+          "ref": "W_MEDIATE",
+          "use": "project_operationalization"
+        },
+        {
+          "source_id": "PROJECT-INDICATOR-THREAD-1.0.0",
+          "ref": "source_fidelity|selection_synthesis",
+          "use": "observable_level_anchor"
+        },
+        {
+          "source_id": "ACTIVITY-CONTRACT-RUNTIME",
+          "ref": "task-contract",
+          "use": "frozen_evidence_boundary"
+        }
+      ]
+    }
+  ]
+}

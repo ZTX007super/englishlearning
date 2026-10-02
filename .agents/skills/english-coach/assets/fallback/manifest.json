@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "policy_version": "v4-draft",
+  "items": [
+    {
+      "content_id": "FB-L-B1-001",
+      "context_id": "campus-service-announcement-001",
+      "title": "Campus Repair Corner",
+      "modality": "listening",
+      "intended_band": "B1",
+      "source_type": "project-original",
+      "rights_status": "project_original",
+      "license_note": "Original text created for this project; local instructional use permitted.",
+      "transcript_path": "transcripts/campus-repair-corner.md",
+      "transcript_sha256": "8D5587FE737C2E1D8CBBE5E0EDC0A19A203915CAE93E8B082A655CC446D4AA29",
+      "audio_path": "audio/campus-repair-corner.wav",
+      "audio_sha256": "2E8903BE9C6527B07C74B7A8272E124C5F05AE50D44E96224D71B18DE1338E83",
+      "audio_duration_seconds": 38.62,
+      "voice": "Microsoft Zira Desktop (en-US, offline)",
+      "presentable": true,
+      "presentability_reason": "project_original_transcript_and_local_audio_hash_verified"
+    },
+    {
+      "content_id": "FB-L-B1P-002",
+      "context_id": "study-strategy-explanation-002",
+      "title": "A Quiet Change to Study Time",
+      "modality": "listening",
+      "intended_band": "B1+",
+      "source_type": "project-original",
+      "rights_status": "project_original",
+      "license_note": "Original text created for this project; local instructional use permitted.",
+      "transcript_path": "transcripts/quiet-change-to-study-time.md",
+      "transcript_sha256": "8FCE51680F6DA7CDE040CE6AD6F5FEA41A9EE24A439FB5091B5DF2CF3B031806",
+      "audio_path": "audio/quiet-change-to-study-time.wav",
+      "audio_sha256": "4FB23D930CBB0447944CC1CCD538B0418DE099262498497138E43C67746518B2",
+      "audio_duration_seconds": 45.96,
+      "voice": "Microsoft Zira Desktop (en-US, offline)",
+      "presentable": true,
+      "presentability_reason": "project_original_transcript_and_local_audio_hash_verified"
+    },
+    {
+      "content_id": "FB-C0004-D2-DIALOGUE",
+      "context_id": "research-workshop-response-001",
+      "title": "The Optional Research Workshop",
+      "modality": "listening",
+      "intended_band": "B1",
+      "source_type": "project-original",
+      "rights_status": "project_original",
+      "license_note": "Original dialogue created for this project; local instructional use permitted.",
+      "transcript_path": "transcripts/c0004-d2-workshop-dialogue.md",
+      "transcript_sha256": "E32421FA12BAA6950BBE3B1DB01DBC8772286D91D3FE11665220E4405A1B6CD5",
+      "audio_path": "audio/c0004-d2-workshop-dialogue.wav",
+      "audio_sha256": "BA0225D90AD8A5AAC9D131568DB99FC47741274747D416F0DC3A0E5EE4E2E197",
+      "audio_duration_seconds": 22.61,
+      "voice": "Microsoft Zira and David Desktop (en-US, offline)",
+      "presentable": true,
+      "presentability_reason": "project_original_two_speaker_transcript_and_local_audio_hash_verified"
+    }
+  ]
+}

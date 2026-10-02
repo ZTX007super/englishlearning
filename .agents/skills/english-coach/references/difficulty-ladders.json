@@ -1,0 +1,919 @@
+{
+  "schema_version": 1,
+  "ladder_id": "english-coach-difficulty-ladders",
+  "ladder_version": "1.0.0",
+  "status": "project_operationalization",
+  "invariants": {
+    "formal_stretch_movement": "exactly one adjacent harder step on one preauthorized dimension",
+    "maximum_dimensions_per_binding": 2,
+    "maximum_probe_candidates_per_lesson": 1,
+    "change_competency_or_activity_family_requires_new_binding": true,
+    "support_is_not_a_difficulty_dimension": true,
+    "quality_scores_are_not_difficulty_dimensions": true,
+    "time_or_cycle_count_expires_state": false,
+    "shared_load_axis_hold_cannot_be_bypassed": true
+  },
+  "excluded_as_dimensions": [
+    "accuracy",
+    "grammatical_accuracy",
+    "vocabulary_control",
+    "coherence",
+    "fluency",
+    "user_mood",
+    "CEFR_level",
+    "model_latency"
+  ],
+  "dimension_registry": [
+    {
+      "dimension_id": "input_span",
+      "load_axis_id": "source_span",
+      "label": "输入篇幅",
+      "harder_direction": "longer",
+      "steps": [
+        {
+          "step_id": "SPAN_1",
+          "ordinal": 1,
+          "label": "短",
+          "raw_range": {
+            "reading_words": [
+              60,
+              120
+            ],
+            "listening_seconds": [
+              25,
+              45
+            ]
+          }
+        },
+        {
+          "step_id": "SPAN_2",
+          "ordinal": 2,
+          "label": "中短",
+          "raw_range": {
+            "reading_words": [
+              121,
+              220
+            ],
+            "listening_seconds": [
+              46,
+              75
+            ]
+          }
+        },
+        {
+          "step_id": "SPAN_3",
+          "ordinal": 3,
+          "label": "中长",
+          "raw_range": {
+            "reading_words": [
+              221,
+              400
+            ],
+            "listening_seconds": [
+              76,
+              120
+            ]
+          }
+        },
+        {
+          "step_id": "SPAN_4",
+          "ordinal": 4,
+          "label": "延展",
+          "raw_range": {
+            "reading_words": [
+              401,
+              650
+            ],
+            "listening_seconds": [
+              121,
+              180
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "relation_load",
+      "load_axis_id": "relation_complexity",
+      "label": "信息关系负荷",
+      "harder_direction": "more_distributed_or_implicit",
+      "steps": [
+        {
+          "step_id": "REL_1",
+          "ordinal": 1,
+          "label": "直接定位",
+          "raw_range": {
+            "relation_type": "one explicit local relation"
+          }
+        },
+        {
+          "step_id": "REL_2",
+          "ordinal": 2,
+          "label": "跨句连接",
+          "raw_range": {
+            "relation_type": "one explicit distributed relation"
+          }
+        },
+        {
+          "step_id": "REL_3",
+          "ordinal": 3,
+          "label": "单一推断",
+          "raw_range": {
+            "relation_type": "one supported implicit relation"
+          }
+        },
+        {
+          "step_id": "REL_4",
+          "ordinal": 4,
+          "label": "多重或隐含关系",
+          "raw_range": {
+            "relation_type": "multiple or qualified implicit relations"
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "discourse_moves",
+      "load_axis_id": "discourse_complexity",
+      "label": "口语交际动作数",
+      "harder_direction": "more_required_moves",
+      "steps": [
+        {
+          "step_id": "MOVE_1",
+          "ordinal": 1,
+          "label": "1个动作",
+          "raw_range": {
+            "required_moves": 1
+          }
+        },
+        {
+          "step_id": "MOVE_2",
+          "ordinal": 2,
+          "label": "2个动作",
+          "raw_range": {
+            "required_moves": 2
+          }
+        },
+        {
+          "step_id": "MOVE_3",
+          "ordinal": 3,
+          "label": "3个动作",
+          "raw_range": {
+            "required_moves": 3
+          }
+        },
+        {
+          "step_id": "MOVE_4",
+          "ordinal": 4,
+          "label": "4个动作",
+          "raw_range": {
+            "required_moves": 4
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "preparation_time",
+      "load_axis_id": "planning_pressure",
+      "label": "口语准备时间",
+      "harder_direction": "less_time",
+      "steps": [
+        {
+          "step_id": "PREP_1",
+          "ordinal": 1,
+          "label": "60秒",
+          "raw_range": {
+            "seconds": 60
+          }
+        },
+        {
+          "step_id": "PREP_2",
+          "ordinal": 2,
+          "label": "45秒",
+          "raw_range": {
+            "seconds": 45
+          }
+        },
+        {
+          "step_id": "PREP_3",
+          "ordinal": 3,
+          "label": "30秒",
+          "raw_range": {
+            "seconds": 30
+          }
+        },
+        {
+          "step_id": "PREP_4",
+          "ordinal": 4,
+          "label": "15秒",
+          "raw_range": {
+            "seconds": 15
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "interaction_turns",
+      "load_axis_id": "interaction_span",
+      "label": "有效互动轮次",
+      "harder_direction": "more_turns",
+      "steps": [
+        {
+          "step_id": "TURN_1",
+          "ordinal": 1,
+          "label": "2轮",
+          "raw_range": {
+            "effective_turns": 2
+          }
+        },
+        {
+          "step_id": "TURN_2",
+          "ordinal": 2,
+          "label": "4轮",
+          "raw_range": {
+            "effective_turns": 4
+          }
+        },
+        {
+          "step_id": "TURN_3",
+          "ordinal": 3,
+          "label": "6轮",
+          "raw_range": {
+            "effective_turns": 6
+          }
+        },
+        {
+          "step_id": "TURN_4",
+          "ordinal": 4,
+          "label": "8轮",
+          "raw_range": {
+            "effective_turns": 8
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "predictability",
+      "load_axis_id": "interaction_uncertainty",
+      "label": "互动可预测性",
+      "harder_direction": "less_predictable",
+      "steps": [
+        {
+          "step_id": "PRED_1",
+          "ordinal": 1,
+          "label": "完全可预期",
+          "raw_range": {
+            "unexpected_conditions": 0,
+            "negotiation": "none"
+          }
+        },
+        {
+          "step_id": "PRED_2",
+          "ordinal": 2,
+          "label": "熟悉变化",
+          "raw_range": {
+            "unexpected_conditions": 0,
+            "negotiation": "one familiar variation"
+          }
+        },
+        {
+          "step_id": "PRED_3",
+          "ordinal": 3,
+          "label": "一个意外条件",
+          "raw_range": {
+            "unexpected_conditions": 1,
+            "negotiation": "bounded"
+          }
+        },
+        {
+          "step_id": "PRED_4",
+          "ordinal": 4,
+          "label": "动态协商",
+          "raw_range": {
+            "unexpected_conditions": "1+",
+            "negotiation": "dynamic within frozen construct"
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "required_moves",
+      "load_axis_id": "written_rhetorical_load",
+      "label": "写作必需动作数",
+      "harder_direction": "more_required_moves",
+      "steps": [
+        {
+          "step_id": "WMOVE_1",
+          "ordinal": 1,
+          "label": "1个动作",
+          "raw_range": {
+            "required_moves": 1
+          }
+        },
+        {
+          "step_id": "WMOVE_2",
+          "ordinal": 2,
+          "label": "2个动作",
+          "raw_range": {
+            "required_moves": 2
+          }
+        },
+        {
+          "step_id": "WMOVE_3",
+          "ordinal": 3,
+          "label": "3个动作",
+          "raw_range": {
+            "required_moves": 3
+          }
+        },
+        {
+          "step_id": "WMOVE_4",
+          "ordinal": 4,
+          "label": "4个动作",
+          "raw_range": {
+            "required_moves": 4
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "output_scope",
+      "load_axis_id": "written_output_span",
+      "label": "写作篇幅",
+      "harder_direction": "longer",
+      "steps": [
+        {
+          "step_id": "WORDS_1",
+          "ordinal": 1,
+          "label": "约50词",
+          "raw_range": {
+            "words": [
+              40,
+              60
+            ]
+          }
+        },
+        {
+          "step_id": "WORDS_2",
+          "ordinal": 2,
+          "label": "约80词",
+          "raw_range": {
+            "words": [
+              70,
+              90
+            ]
+          }
+        },
+        {
+          "step_id": "WORDS_3",
+          "ordinal": 3,
+          "label": "约120词",
+          "raw_range": {
+            "words": [
+              105,
+              135
+            ]
+          }
+        },
+        {
+          "step_id": "WORDS_4",
+          "ordinal": 4,
+          "label": "约160词",
+          "raw_range": {
+            "words": [
+              145,
+              175
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "dimension_id": "integration_distance",
+      "load_axis_id": "source_integration",
+      "label": "来源整合距离",
+      "harder_direction": "more_distributed_or_conflicting",
+      "steps": [
+        {
+          "step_id": "INT_1",
+          "ordinal": 1,
+          "label": "直接转述",
+          "raw_range": {
+            "sources": 1,
+            "relation": "local explicit"
+          }
+        },
+        {
+          "step_id": "INT_2",
+          "ordinal": 2,
+          "label": "跨段选择",
+          "raw_range": {
+            "sources": 1,
+            "relation": "distributed selection"
+          }
+        },
+        {
+          "step_id": "INT_3",
+          "ordinal": 3,
+          "label": "整合一致来源",
+          "raw_range": {
+            "sources": 2,
+            "relation": "compatible synthesis"
+          }
+        },
+        {
+          "step_id": "INT_4",
+          "ordinal": 4,
+          "label": "协调有差异来源",
+          "raw_range": {
+            "sources": 2,
+            "relation": "qualified or differing synthesis"
+          }
+        }
+      ]
+    }
+  ],
+  "ladder_template": [
+    {
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "allowed_modalities": [
+        "audio",
+        "text"
+      ]
+    },
+    {
+      "template_id": "spoken_monologue",
+      "default_dimension": "discourse_moves",
+      "backup_dimension": "preparation_time",
+      "allowed_modalities": [
+        "speech"
+      ]
+    },
+    {
+      "template_id": "spoken_interaction",
+      "default_dimension": "interaction_turns",
+      "backup_dimension": "predictability",
+      "allowed_modalities": [
+        "speech"
+      ]
+    },
+    {
+      "template_id": "independent_writing",
+      "default_dimension": "required_moves",
+      "backup_dimension": "output_scope",
+      "allowed_modalities": [
+        "writing"
+      ]
+    },
+    {
+      "template_id": "source_based_mediation",
+      "default_dimension": "integration_distance",
+      "backup_dimension": "input_span",
+      "allowed_modalities": [
+        "speech",
+        "writing"
+      ]
+    }
+  ],
+  "family_ladder_binding": [
+    {
+      "binding_id": "BIND_01_L_INTERACTION",
+      "competency_family": "L_INTERACTION",
+      "activity_family": "source_comprehension",
+      "modality": "audio",
+      "construct": "speaker_intent_and_turn_relation",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_02_L_ACTION_INFO",
+      "competency_family": "L_ACTION_INFO",
+      "activity_family": "source_comprehension",
+      "modality": "audio",
+      "construct": "required_action_and_constraints",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_03_L_EXTENDED",
+      "competency_family": "L_EXTENDED",
+      "activity_family": "source_comprehension",
+      "modality": "audio",
+      "construct": "main_line_and_idea_relation",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_04_S_TRANSACTION",
+      "competency_family": "S_TRANSACTION",
+      "activity_family": "interaction_roleplay",
+      "modality": "speech",
+      "construct": "goal_completion_and_repair",
+      "template_id": "spoken_interaction",
+      "default_dimension": "interaction_turns",
+      "backup_dimension": "predictability",
+      "default_target_steps": {
+        "interaction_turns": "TURN_2",
+        "predictability": "PRED_2"
+      },
+      "enabled_dimensions": [
+        "interaction_turns",
+        "predictability"
+      ]
+    },
+    {
+      "binding_id": "BIND_05_S_CONVERSATION",
+      "competency_family": "S_CONVERSATION",
+      "activity_family": "interaction_roleplay",
+      "modality": "speech",
+      "construct": "responsive_contribution_and_turn_management",
+      "template_id": "spoken_interaction",
+      "default_dimension": "interaction_turns",
+      "backup_dimension": "predictability",
+      "default_target_steps": {
+        "interaction_turns": "TURN_2",
+        "predictability": "PRED_2"
+      },
+      "enabled_dimensions": [
+        "interaction_turns",
+        "predictability"
+      ]
+    },
+    {
+      "binding_id": "BIND_06_S_EXPLAIN",
+      "competency_family": "S_EXPLAIN",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "construct": "message_sequence_and_detail",
+      "template_id": "spoken_monologue",
+      "default_dimension": "discourse_moves",
+      "backup_dimension": "preparation_time",
+      "default_target_steps": {
+        "discourse_moves": "MOVE_2",
+        "preparation_time": "PREP_2"
+      },
+      "enabled_dimensions": [
+        "discourse_moves",
+        "preparation_time"
+      ]
+    },
+    {
+      "binding_id": "BIND_07_S_ARGUMENT",
+      "competency_family": "S_ARGUMENT",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "construct": "position_and_support",
+      "template_id": "spoken_monologue",
+      "default_dimension": "discourse_moves",
+      "backup_dimension": "preparation_time",
+      "default_target_steps": {
+        "discourse_moves": "MOVE_2",
+        "preparation_time": "PREP_2"
+      },
+      "enabled_dimensions": [
+        "discourse_moves",
+        "preparation_time"
+      ]
+    },
+    {
+      "binding_id": "BIND_08_R_FUNCTIONAL",
+      "competency_family": "R_FUNCTIONAL",
+      "activity_family": "source_comprehension",
+      "modality": "text",
+      "construct": "purpose_action_and_constraints",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_09_R_NARRATIVE",
+      "competency_family": "R_NARRATIVE",
+      "activity_family": "source_comprehension",
+      "modality": "text",
+      "construct": "event_relation_and_attitude",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_10_R_EXPOSITORY",
+      "competency_family": "R_EXPOSITORY",
+      "activity_family": "source_comprehension",
+      "modality": "text",
+      "construct": "main_structure_and_detail_relation",
+      "template_id": "receptive_single_source",
+      "default_dimension": "input_span",
+      "backup_dimension": "relation_load",
+      "default_target_steps": {
+        "input_span": "SPAN_2",
+        "relation_load": "REL_2"
+      },
+      "enabled_dimensions": [
+        "input_span",
+        "relation_load"
+      ]
+    },
+    {
+      "binding_id": "BIND_11_R_ARGUMENT",
+      "competency_family": "R_ARGUMENT",
+      "activity_family": "source_comprehension",
+      "modality": "text",
+      "construct": "claim_evidence_and_inference",
+      "template_id": "receptive_single_source",
+      "default_dimension": "relation_load",
+      "backup_dimension": "input_span",
+      "default_target_steps": {
+        "relation_load": "REL_2",
+        "input_span": "SPAN_2"
+      },
+      "enabled_dimensions": [
+        "relation_load",
+        "input_span"
+      ]
+    },
+    {
+      "binding_id": "BIND_12_W_TRANSACTION",
+      "competency_family": "W_TRANSACTION",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "construct": "communicative_completion_and_reader_fit",
+      "template_id": "independent_writing",
+      "default_dimension": "required_moves",
+      "backup_dimension": "output_scope",
+      "default_target_steps": {
+        "required_moves": "WMOVE_2",
+        "output_scope": "WORDS_2"
+      },
+      "enabled_dimensions": [
+        "required_moves",
+        "output_scope"
+      ]
+    },
+    {
+      "binding_id": "BIND_13_W_EXPLAIN",
+      "competency_family": "W_EXPLAIN",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "construct": "explanation_sequence_and_detail",
+      "template_id": "independent_writing",
+      "default_dimension": "required_moves",
+      "backup_dimension": "output_scope",
+      "default_target_steps": {
+        "required_moves": "WMOVE_2",
+        "output_scope": "WORDS_2"
+      },
+      "enabled_dimensions": [
+        "required_moves",
+        "output_scope"
+      ]
+    },
+    {
+      "binding_id": "BIND_14_W_ARGUMENT",
+      "competency_family": "W_ARGUMENT",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "construct": "position_structure_and_support",
+      "template_id": "independent_writing",
+      "default_dimension": "required_moves",
+      "backup_dimension": "output_scope",
+      "default_target_steps": {
+        "required_moves": "WMOVE_2",
+        "output_scope": "WORDS_2"
+      },
+      "enabled_dimensions": [
+        "required_moves",
+        "output_scope"
+      ]
+    },
+    {
+      "binding_id": "BIND_15_W_MEDIATE",
+      "competency_family": "W_MEDIATE",
+      "activity_family": "integrated_response",
+      "modality": "writing",
+      "construct": "source_fidelity_and_synthesis",
+      "template_id": "source_based_mediation",
+      "default_dimension": "integration_distance",
+      "backup_dimension": "input_span",
+      "default_target_steps": {
+        "integration_distance": "INT_2",
+        "input_span": "SPAN_2"
+      },
+      "enabled_dimensions": [
+        "integration_distance",
+        "input_span"
+      ]
+    }
+  ],
+  "modality_adapters": {
+    "audio": {
+      "metadata": [
+        "duration_seconds",
+        "speech_rate_band",
+        "speaker_count",
+        "replay_limit"
+      ],
+      "rule": "Adapter metadata may validate comparability but cannot create an extra ladder dimension."
+    },
+    "text": {
+      "metadata": [
+        "word_count",
+        "layout_navigation",
+        "genre"
+      ],
+      "rule": "Word count must fit the selected span step; navigation changes outside tolerance make evidence non-comparable."
+    },
+    "speech": {
+      "metadata": [
+        "response_time_target",
+        "preparation_seconds",
+        "interaction_participants"
+      ],
+      "rule": "Asynchronous message delay is never a cost or fluency signal."
+    },
+    "writing": {
+      "metadata": [
+        "word_target",
+        "genre",
+        "audience",
+        "reference_access"
+      ],
+      "rule": "Genre or communicative purpose changes require a new activity contract, not a hidden harder step."
+    }
+  },
+  "movement_policy": {
+    "target_check": "all active dimensions remain at the frozen target steps",
+    "difficulty_probe": "one preauthorized dimension moves exactly one ordinal higher; every other condition remains within adapter tolerance",
+    "scaffolded": "may select a predefined easier step or instructional support, but does not lower the stored target",
+    "ceiling": "the highest step sets ceiling_reached for this binding only",
+    "invalid_or_non_comparable": "does not move target, counters, hold, or queue"
+  },
+  "evidence_mode_compatibility": {
+    "training": [
+      "practice",
+      "transfer"
+    ],
+    "target_check": [
+      "probe",
+      "transfer"
+    ],
+    "difficulty_probe": [
+      "probe"
+    ],
+    "capability_probe": [
+      "assessment"
+    ],
+    "rules": [
+      "practice cannot become difficulty_probe",
+      "capability_probe never updates adaptation state",
+      "review and guided answers never update adaptation state"
+    ]
+  },
+  "adaptation_policy": {
+    "progress_state": [
+      "target_building",
+      "probe_ready",
+      "confirmation_building",
+      "promotion_hold"
+    ],
+    "overlays": [
+      "target_unstable"
+    ],
+    "learning_flags": [
+      "user_hold",
+      "ceiling_reached"
+    ],
+    "migration_flag": [
+      "migration_review_required"
+    ],
+    "hold_phase": [
+      "recovering",
+      "release_ready",
+      "first_probe_met",
+      "confirmation_ready"
+    ],
+    "probe_ready": {
+      "successes": 2,
+      "different_study_days": 2,
+      "different_contexts": 2,
+      "normal_cost_requirement": "If the latest success is high or unknown, require one later normal target success.",
+      "scheduling": "eligible only for a later compatible activity preauthorized at cycle review"
+    },
+    "promotion": {
+      "sequence": [
+        "stretch_met on a new day/context",
+        "later target success",
+        "later stretch_met on a new day/context"
+      ],
+      "normal_cost_requirement": "At least one stretch_met has cost_signal normal.",
+      "result": "move target one adjacent step, return to target_building, and require later consolidation"
+    },
+    "probe_failure": {
+      "one_stretch_not_ready": "return to target_building and rebuild probe eligibility",
+      "promotion_hold": "enter recovering after two not-ready results in the latest three valid probes or one stretch_overload",
+      "invalid_non_comparable": "ignore for failure windows and do not re-probe the same day"
+    },
+    "hold_recovery": {
+      "target_successes": 3,
+      "different_study_days": 3,
+      "minimum_contexts": 2,
+      "minimum_normal_cost": 2,
+      "after_threshold": "set release_ready; a cycle review must preauthorize the next probe",
+      "probe_sequence": [
+        "stretch_met",
+        "later target success",
+        "later preauthorized stretch_met"
+      ],
+      "failed_hold_probe": "return to recovering and reset the recovery sequence"
+    },
+    "target_unstable": {
+      "trigger": "two target failures in the latest three valid target observations across at least two study days",
+      "effect": "pause probes and use predefined scaffolded teaching while preserving the target",
+      "recovery": "two independent target successes on different days and contexts, at least one normal; without an existing hold require one later new-context target before probe eligibility",
+      "invalid_guided_scaffolded": "do not count"
+    },
+    "recovery_mode": {
+      "probe_allowed": false,
+      "eligible_evidence": "only an independent first answer at the exact stored target with no extra support",
+      "state_expiration": false
+    },
+    "cost_signal": {
+      "values": [
+        "normal",
+        "high",
+        "unknown"
+      ],
+      "high_sources": [
+        "learner explicitly reports very high effort",
+        "optional frozen difficulty rating is 5/5",
+        "objective signal declared before the answer and actually observed"
+      ],
+      "forbidden_source": "elapsed asynchronous response time"
+    }
+  },
+  "runtime_resolution": {
+    "required_frozen_fields": [
+      "catalog_version",
+      "ladder_version",
+      "contract_version",
+      "competency_family",
+      "activity_family",
+      "modality",
+      "construct",
+      "template_id",
+      "target_step",
+      "planned_step",
+      "presented_step",
+      "changed_dimension",
+      "load_axis_id",
+      "access_profile"
+    ],
+    "on_unknown_or_mismatch": "Use the binding default target as training and set migration_review_required; never infer success or failure.",
+    "queue_effect": "none",
+    "review_effect": "none"
+  }
+}

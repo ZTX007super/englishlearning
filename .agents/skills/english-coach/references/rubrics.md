@@ -1,48 +1,69 @@
-# 评估与反馈量表
+# 评分、支持与证据量表
 
-## 基本原则
+只在 diagnostic、assessment、正式 probe，或活动 contract 明确需要质量评分时读取。任务是否完成先按 [task-contracts.md](task-contracts.md) 判断；教学问题取舍按 [teaching-loop.md](teaching-loop.md)。
 
-- 使用可观察证据：正确率、回答内容、复述完整度、错误复发和完成时间。
-- 日常练习不换算精确托福分数。只有四周测评和十二周综合模拟可以给出区间估计，并标注“非 ETS 官方成绩”。
-- 语音听写只能证明设备大致识别了哪些词，不能独立评价音素、重音、节奏或语调。
+## 共同原则
 
-## 四项能力
+- 只评价冻结契约实际观察到的内容。结果必须引用 activity/observation/criterion ID 和最小充分表现片段。
+- `not_observed`、`not_assessable` 与 `not_met` 分开；歧义、技术问题、条件不可比和不可靠转写不是学习者失败。
+- 首答、guided/revised/repair/transfer 分开保存。最后答对不能消除实际帮助，也不能改写首次结果。
+- 日常训练不换算精确 TOEFL 分数；任何内部估计都标注“非 ETS 官方成绩”，说明 task、metric、scale、版本和限制。
+
+## 质量维度
+
+按 contract 选取，不要求每次全部评分：
+
+- `range`：能否调动完成任务所需的词汇和结构范围。
+- `grammatical_accuracy`：语法控制及错误对理解的影响。
+- `vocabulary_control`：词义、搭配、精确度和语域。
+- `coherence`：信息组织、连接和逻辑关系。
+- `fluency`：连续表达、停顿与自我修复；纯异步文字不得猜测口语流畅度。
+- `sociolinguistic_appropriateness`：对象、场景、礼貌与语域适配。
+- `phonological_control`：音素、重音、节奏、语调与可懂度；只有可靠音频和实际声音分析时使用。
+
+## 四项能力观察
 
 ### 听力
 
-分别记录主旨、关键细节、说话者目的、推断和复述。优先报告“答对了什么、漏掉了什么、下一次怎样听”。
+分别记录主线、关键细节、说话者目的、turn/idea relation、推断和复述。报告答对、遗漏、证据位置及下一步，不用总正确率掩盖题型差异。
 
 ### 口语
 
-按 1–5 记录：任务回应、内容组织、语法控制、词汇范围和流畅度。只有获得音频且工具能够实际分析声音时，才评价发音；否则写明未评估。
+根据活动选择任务回应、组织、语法、词汇、互动、流畅度等质量维度。只有音频条件满足时评价 phonological control；听写文本只作粗略可懂度线索。
 
 ### 阅读
 
-记录主旨、事实、词义、指代、推断、句子关系和阅读速度。不要只用总正确率掩盖题型差异。
+分别记录主旨、事实、词义、指代、目的、claim/evidence relation、推断和阅读条件。速度只有实际、可靠计时时记录。
 
 ### 写作
 
-按 1–5 记录：任务完成、组织、语法、词汇和连贯。先指出影响理解的问题，再处理自然度和风格。
+根据体裁、受众和目的记录任务完成、组织、语法、词汇、连贯及 source fidelity。先判断是否影响任务和意义，再判断自然度或风格。
 
-## CEFR 进度标签
+## 支持
 
-- `A2`：能处理熟悉、直接的简单信息，但复杂输入和连续表达明显受限。
-- `B1`：能理解清楚的常见内容并进行连贯但有限的表达。
-- `B1+`：多数常见任务可独立完成，复杂或快速内容仍不稳定。
-- `B2`：能理解较复杂的具体与抽象内容，并较自然、清楚地持续互动和表达观点。
+`support_level` 固定为：
 
-标签必须附一条具体证据和一条未达到下一等级的原因。
+- `none`：没有超出 contract 正常 access condition 的帮助；
+- `light_hint`：定位、关键词或不泄露答案的轻提示；
+- `heavy_hint`：规则提示、句架、选项或明显缩小答案范围；
+- `model`：示范、答案或足以重构答案的完整形式。
 
-## 测评节奏
+`support_kind` 记录实际帮助，例如 `replay | review_source | location | keyword | rule | frame | options | model`。契约内预先允许的准备、回看或重放不自动算提示；超过允许条件后才记录支持。
 
-- 每 4 轮：将听、说、读、写分散到多个 30 分钟课次，避免一次超时。
-- 每 12 周：覆盖当前新版 TOEFL 题型的分段综合模拟，汇总为 1–6 的半分档内部估计。
-- 年度目标参考：综合证据接近 B2，两个连续综合测评约 4.0；任何明显低于 3.5 的单项都需要专项计划，但不伪造录取标准。
+每个 criterion/loop 保存实际使用的最高 support level 及相关 kinds。使用 model 后，受影响的原题或标准失去独立性；新 activity ID 的新语境按其真实支持重新判断。
 
-## 纠错顺序
+## 成本与有效性
 
-1. 是否影响理解或任务完成。
-2. 是否为近期反复出现的错误。
-3. 是否能通过一次解释和重说得到明显收益。
+`cost_signal` 使用 `normal | high | unknown`。只有 contract 预先定义且可观察的困难指标才能标 high；AI不能仅凭消息间隔、主观印象或学习者一句“很难”推定。
 
-每次最多处理三个重点。格式为：原表达 → 推荐表达 → 简短原因 → 用户重试。
+用于长期 A 类的证据必须是有效、可比、首次、独立、未暴露，且支持不超过 contract 的正常允许条件。B/C 分类和长期门槛由 [long-term-state.md](long-term-state.md) 与 tracker reducer 决定，AI不手工升级。
+
+CEFR 能力引用版本化 competency catalog 的现有 `competency_id / indicator_id / anchor_id`。本文件不另建 A2/B1/B1+/B2 描述或四技能平均分；项目只能称 CEFR-aligned/referenced，不能声称官方校准。
+
+## Assessment
+
+- Assessment 前冻结 task、metric、scale、适用材料、access/support 和评分范围，并先保存完整无提示表现。
+- 听、说、读、写可以分散到多个计划项；以队列和 assessment contract 为准，不按自然周强制赶完。
+- 每项结论列出决定性 evidence、条件、成本、未观察内容和未达到下一门槛的具体原因。
+- TOEFL 内部估计只在对应综合 assessment contract 允许时给出。正式考试结构、换算和适用日期必须引用通过 [resource-policy.md](resource-policy.md) 校验的 ETS authority record。
+- 语音条件不足时明确写“发音未评估”，不能让 transcript 识别率替代发音、重音、节奏或语调评分。

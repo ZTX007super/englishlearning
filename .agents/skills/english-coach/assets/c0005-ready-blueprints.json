@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "plan_id": "C0005",
+  "blueprints": [
+    {
+      "plan_item_id": "PC0005-D1",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "probe",
+      "mode": "fluency",
+      "primary_construct": "Explain a process with a clear opening, connected development, relevant detail, and ending",
+      "prompt_text": "Your student club is planning a small welcome event. Explain to a new volunteer how to organize it: introduce the aim, describe two or three steps with relevant details, and finish with a clear summary. Prepare silently for 60 seconds, then speak for 45 to 60 seconds. Give your first answer without hints, a model, or feedback.",
+      "content_id": "CONTENT-C0005-D1",
+      "context_id": "CONTEXT-C0005-D1",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "essential",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects ordered steps and relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "required",
+          "description": "Ends with a clear summary or recommendation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear opening",
+          "connected development with relevant detail",
+          "clear ending"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "target_check",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "none"
+      }
+    },
+    {
+      "plan_item_id": "PC0005-D2",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "listening",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Track one speaker's concern and identify how the second speaker responds",
+      "prompt_text": "This is consolidation using a previously heard dialogue, so it is training evidence only. Listen again without the transcript. Explain Mia's concern and how Leo's response addresses it.",
+      "material": {
+        "content_id": "FB-C0004-D2-DIALOGUE",
+        "context_id": "research-workshop-response-001",
+        "audio_path": ".agents/skills/english-coach/assets/fallback/audio/c0004-d2-workshop-dialogue.wav",
+        "audio_sha256": "BA0225D90AD8A5AAC9D131568DB99FC47741274747D416F0DC3A0E5EE4E2E197",
+        "transcript_path": ".agents/skills/english-coach/assets/fallback/transcripts/c0004-d2-workshop-dialogue.md",
+        "transcript_sha256": "E32421FA12BAA6950BBE3B1DB01DBC8772286D91D3FE11665220E4405A1B6CD5",
+        "transcript_text": "Mia: I know the optional research workshop could help, but it meets on Friday afternoon, when I usually finish my lab reports. I am not sure the benefit is worth losing that time. Leo: That makes sense. Why not attend the first meeting and ask whether later sessions are recorded? Then you can judge the value without committing every Friday."
+      },
+      "criteria": [
+        {
+          "criterion_id": "CR-D2-CONCERN",
+          "importance": "essential",
+          "description": "Identifies the time conflict and Mia's uncertainty about whether the benefit is worth it"
+        },
+        {
+          "criterion_id": "CR-D2-RESPONSE",
+          "importance": "required",
+          "description": "Explains that Leo validates the concern and proposes a trial before commitment"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "Friday workshop conflicts with lab-report time",
+          "Mia is unsure about the tradeoff",
+          "Leo proposes attending once and checking recordings before deciding"
+        ],
+        "acceptable_variants": "Any wording that preserves the concern-response relationship",
+        "invalid_conditions": [
+          "reverses either speaker's position",
+          "states only isolated details without the relationship"
+        ]
+      },
+      "evidence_mode": "training"
+    },
+    {
+      "plan_item_id": "PC0005-D3",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "practice",
+      "mode": "fluency",
+      "primary_construct": "Explain a process with a clear opening, connected development, relevant detail, and ending",
+      "prompt_text": "A classmate is finding it difficult to balance a part-time job and coursework. Explain a practical weekly planning routine, using a clear opening, ordered steps with details, and a brief conclusion. Prepare for 45 to 60 seconds and speak for 45 to 60 seconds.",
+      "content_id": "CONTENT-C0005-D3",
+      "context_id": "CONTEXT-C0005-D3",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "essential",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects ordered steps and relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "required",
+          "description": "Ends with a clear summary or recommendation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear opening",
+          "connected development with relevant detail",
+          "clear ending"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "training",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "none"
+      }
+    },
+    {
+      "plan_item_id": "PC0005-D4",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "reading",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Identify an expository text's main line and explain how a detail supports it",
+      "prompt_text": "Read the passage. Identify its problem–trial–evidence–conclusion structure. Explain how the return-rate detail supports the proposed improvement, and state one limit on the conclusion.",
+      "material": {
+        "content_id": "CONTENT-C0005-D4-CHARGERS",
+        "context_id": "CONTEXT-C0005-D4-LIBRARY",
+        "rights_status": "project_original",
+        "text": "A university library tested a new system for lending chargers. Under the old system, students could borrow one for a whole day, but many chargers were unavailable by lunchtime. The library then introduced two-hour loans and a reminder sent fifteen minutes before the return time. During the four-week trial, more students were able to borrow chargers in the afternoon. However, late returns remained common on days when the reminder service failed. Staff suggested keeping the shorter loan period and improving the reliability of the reminders. They also noted that the trial took place outside the examination season. Demand may be higher during exams, so the results do not yet show whether the same system will work equally well throughout the year."
+      },
+      "criteria": [
+        {
+          "criterion_id": "CR-C5-R-MAIN",
+          "importance": "essential",
+          "description": "Identifies the shortage, trial, results and qualified recommendation"
+        },
+        {
+          "criterion_id": "CR-C5-R-DETAIL",
+          "importance": "required",
+          "description": "Connects failed reminders to late returns and explains the exam-season limitation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "shorter loans improved afternoon availability",
+          "reminder failures coincided with late returns",
+          "exam-season demand was not tested"
+        ],
+        "acceptable_variants": "Any wording preserving these relationships",
+        "invalid_conditions": [
+          "claims proven year-round effectiveness",
+          "reverses the relation between reminders and returns"
+        ]
+      }
+    },
+    {
+      "plan_item_id": "PC0005-D5",
+      "stage": "output",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "purpose": "practice",
+      "mode": "mixed",
+      "primary_construct": "Explain a workable group coordination process",
+      "prompt_text": "In about 80 words, explain how students can coordinate a group assignment when their schedules differ. Give a practical method, explain its steps, and say why it helps.",
+      "content_id": "CONTENT-C0005-D5",
+      "context_id": "CONTEXT-C0005-D5",
+      "criteria": [
+        {
+          "criterion_id": "CR-C5-W-METHOD",
+          "importance": "essential",
+          "description": "States a practical coordination method"
+        },
+        {
+          "criterion_id": "CR-C5-W-PROCESS",
+          "importance": "required",
+          "description": "Explains ordered steps and why they help"
+        },
+        {
+          "criterion_id": "CR-C5-W-CLARITY",
+          "importance": "required",
+          "description": "Uses understandable sentence boundaries and links"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "coordination method",
+          "steps",
+          "reason"
+        ],
+        "acceptable_variants": "Any realistic method for coordinating different schedules",
+        "invalid_conditions": [
+          "unrelated answer",
+          "method without explanation"
+        ]
+      }
+    },
+    {
+      "plan_item_id": "PC0005-D6",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "probe",
+      "mode": "fluency",
+      "primary_construct": "Explain a process with a clear opening, connected development, relevant detail, and ending",
+      "prompt_text": "Explain to a new flatmate how to share household responsibilities fairly. Introduce the aim, describe a clear process with relevant details, and end with a concise summary. Prepare silently for 60 seconds, then speak for 45 to 60 seconds. Use a different study day from the first independent check where possible; if both occur on one day, they count as only one evidence day. Answer without hints, a model, or feedback.",
+      "content_id": "CONTENT-C0005-D6",
+      "context_id": "CONTEXT-C0005-D6",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "essential",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects ordered steps and relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "required",
+          "description": "Ends with a clear summary or recommendation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear opening",
+          "connected development with relevant detail",
+          "clear ending"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "target_check",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "none"
+      }
+    },
+    {
+      "plan_item_id": "PC0005-D7",
+      "stage": "cycle_review",
+      "activity_family": "cycle_review",
+      "modality": "mixed",
+      "purpose": "assessment",
+      "mode": "mixed",
+      "primary_construct": "Review C0004 evidence, decide the focus goal, and confirm the next cycle before writing it",
+      "prompt_text": "Use the bounded C0004 evidence packet to present the focus-goal result, maintenance coverage, unresolved uncertainty, and one recommended next-cycle focus with an alternative. Ask for confirmation before changing the plan.",
+      "required_outputs": [
+        "goal_decision",
+        "evidence references",
+        "recommended next focus",
+        "alternative",
+        "user confirmation"
+      ]
+    }
+  ]
+}
