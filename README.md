@@ -7,6 +7,7 @@
 - **想上课**：在项目对话中说“开始今日学习”或“继续学习”，由 english-coach 技能按当前进度启动。
 - **想理解课程流程**：先看下面的“一节课如何运行”，再按需要打开对应文件。
 - **想修改项目**：先读 [MAINTENANCE.md](MAINTENANCE.md) 的维护边界，再用“按问题找文件”定位。
+- **想了解产品需求与当前真实状态**：读 [docs/PRD.md](docs/PRD.md)，第 5 节是功能需求，第 10 节是实测发现的缺口。
 - **想备份或换电脑**：读 [备份与恢复说明](maintenance/backup-guide.md)。Git 不包含完整学习状态。
 
 ## 一节课如何运行
@@ -27,6 +28,7 @@
 | 位置 | 用途 |
 | --- | --- |
 | [README.md](README.md) | 给人看的入口、流程和文件地图。 |
+| [docs/PRD.md](docs/PRD.md) | 产品需求文档：定位、功能需求、数据模型、验收标准与已知缺口。 |
 | [AGENTS.md](AGENTS.md) | AI 自动读取的工作分流与数据边界。 |
 | [MAINTENANCE.md](MAINTENANCE.md) | 维护时按需读取的项目约束。 |
 | [.agents/skills/english-coach/](.agents/skills/english-coach/SKILL.md) | 教练入口，以及按需读取的规则、脚本和材料。 |

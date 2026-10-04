@@ -6,3 +6,6 @@
 # 完整备份与本地演练副本
 /backups/
 /.cache/
+
+# WorkBuddy工作文件
+/.workbuddy/
