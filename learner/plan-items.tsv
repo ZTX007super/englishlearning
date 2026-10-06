@@ -30,7 +30,14 @@ P2026W37-D7	C0004	7	C0004 轮次复盘	review	integrated	true	completed	S2026092
 PC0005-D1	C0005	1	迎新活动说明：独立口语检查	integrated	speaking	true	completed	S20260925-f92575f4b9	FG-C0004-01	focus
 PC0005-D2	C0005	2	人物观点与回应关系：听力巩固	integrated	listening	true	completed	S20260927-e03651300b		maintenance
 PC0005-D3	C0005	3	兼职与课程安排：结构化口语训练	integrated	speaking	true	completed	S20260930-c03d02e63f	FG-C0004-01	focus
-PC0005-D4	C0005	4	图书馆充电器试点：阅读结构与证据	integrated	reading	true	planned			maintenance
-PC0005-D5	C0005	5	错峰协作：80词解释写作	integrated	writing	true	planned			maintenance
-PC0005-D6	C0005	6	家务分工流程：跨情境独立口语检查	integrated	speaking	true	planned		FG-C0004-01	focus
-PC0005-D7	C0005	7	C0005 轮次复盘	review	integrated	true	planned		FG-C0004-01	cycle_review
+PC0005-D4	C0005	4	图书馆充电器试点：阅读结构与证据	integrated	reading	true	completed	S20261002-6207138a0c		maintenance
+PC0005-D5	C0005	5	错峰协作：80词解释写作	integrated	writing	true	completed	S20261003-388d0f7bf9		maintenance
+PC0005-D6	C0005	6	家务分工流程：跨情境独立口语检查	integrated	speaking	true	completed	S20261005-46feb9e3ff	FG-C0004-01	focus
+PC0005-D7	C0005	7	C0005 轮次复盘	review	integrated	true	completed	S20261006-e2038c5c11	FG-C0004-01	cycle_review
+PC0006-D1	C0006	1	校园旧书交换：独立口语检查	integrated	speaking	true	planned		FG-C0006-01	focus
+PC0006-D2	C0006	2	小组展示排练：听力关系理解	integrated	listening	true	planned			maintenance
+PC0006-D3	C0006	3	备份项目文件：步骤与结尾训练	integrated	speaking	true	planned		FG-C0006-01	focus
+PC0006-D4	C0006	4	校园打印预约试点：阅读因果与限制	integrated	reading	true	planned			maintenance
+PC0006-D5	C0006	5	同伴代码审查：80词说明写作	integrated	writing	true	planned			maintenance
+PC0006-D6	C0006	6	电脑故障求助流程：独立口语确认	integrated	speaking	true	planned		FG-C0006-01	focus
+PC0006-D7	C0006	7	C0006 轮次复盘	review	integrated	true	planned		FG-C0006-01	cycle_review

@@ -19,6 +19,7 @@
 
 ## 维护入口
 
+- 首次接手或判断产品范围时读取 [`docs/PRD.md`](docs/PRD.md)，了解产品目标、行为要求和已知实现缺口。
 - Agent 路由与共同关键路径：[`SKILL.md`](.agents/skills/english-coach/SKILL.md)
 - 人类阅读入口与文件地图：[`README.md`](README.md)。
 - 追溯设计理由时读取 [`docs/design/learning-system-plan.md`](docs/design/learning-system-plan.md)；它包含未实现设想，当前执行按 skill 与对应协议。

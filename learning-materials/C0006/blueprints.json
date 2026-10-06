@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "plan_id": "C0006",
+  "blueprints": [
+    {
+      "plan_item_id": "PC0006-D1",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "probe",
+      "mode": "fluency",
+      "primary_construct": "Explain concrete ordered actions and close with a relevant summary or recommendation while preserving a clear opening",
+      "prompt_text": "Your university is holding a used-book exchange. Explain to a student volunteer how to run it: state the aim, describe two or three concrete steps with relevant details, and end with a brief summary or practical recommendation. Prepare silently for 60 seconds and speak for 45 to 60 seconds. Give your first answer without a model, hints, notes, or feedback.",
+      "content_id": "CONTENT-C0006-D1",
+      "context_id": "CONTEXT-C0006-D1",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "required",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects two or three concrete actions with relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "essential",
+          "description": "Closes with a concise summary or practical recommendation linked to the explanation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear purpose",
+          "ordered concrete actions with relevant detail",
+          "relevant closing summary or recommendation"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "target_check",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "none"
+      }
+    },
+    {
+      "plan_item_id": "PC0006-D2",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "listening",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Track a speaker's concern and the purpose of the proposed response",
+      "prompt_text": "Listen to the dialogue without the transcript. Explain Nora's concern, Sam's proposed arrangement, and why he thinks it will help. You may listen twice and answer in Chinese or simple English.",
+      "material": {
+        "content_id": "CONTENT-C0006-D2-REHEARSAL",
+        "context_id": "CONTEXT-C0006-D2-PRESENTATION",
+        "rights_status": "project_original",
+        "audio_path": "learning-materials/C0006/rehearsal.wav",
+        "audio_sha256": "E5D7AAADEFD05E386D5205681B80C341137673C275112E3492F8C1DBD0CA3118",
+        "transcript_path": "learning-materials/C0006/rehearsal-transcript.md",
+        "transcript_sha256": "55D5282B2C1922AA4F7B7CA40641297088F4CAB4AF658D002D493F5AA3F23A41",
+        "transcript_text": "Nora: Our group presentation is next Tuesday, but I cannot attend a long rehearsal on Friday. I have a lab session until five, and I still need time to finish my slides.\nSam: Why not send us your slides on Thursday? We can check the order online. Then we could have a short rehearsal on Monday evening. That would let us test the transitions without keeping everyone busy for hours."
+      },
+      "criteria": [
+        {
+          "importance": "essential",
+          "criterion_id": "CR-C6-L-CONCERN",
+          "description": "Identifies Friday lab conflict and need to finish slides"
+        },
+        {
+          "importance": "required",
+          "criterion_id": "CR-C6-L-RESPONSE",
+          "description": "Links Thursday online slide review and short Monday rehearsal to testing transitions with less time commitment"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "Friday lab and unfinished slides limit availability",
+          "Thursday online slide-order review",
+          "short Monday rehearsal tests transitions with less time"
+        ],
+        "acceptable_variants": "Any Chinese or English wording preserving the concern-response-purpose relationship",
+        "invalid_conditions": [
+          "reverses speaker positions",
+          "invents compulsory Friday attendance"
+        ]
+      },
+      "evidence_mode": "training"
+    },
+    {
+      "plan_item_id": "PC0006-D3",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "practice",
+      "mode": "fluency",
+      "primary_construct": "Explain concrete ordered actions and close with a relevant summary or recommendation while preserving a clear opening",
+      "prompt_text": "Explain to a classmate how to back up a programming project before making major changes. State the purpose, describe two or three concrete steps, and end with a brief summary or recommendation. Prepare for 60 seconds and speak for 45 to 60 seconds. Feedback follows your complete first response.",
+      "content_id": "CONTENT-C0006-D3",
+      "context_id": "CONTEXT-C0006-D3",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "required",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects two or three concrete actions with relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "essential",
+          "description": "Closes with a concise summary or practical recommendation linked to the explanation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear purpose",
+          "ordered concrete actions with relevant detail",
+          "relevant closing summary or recommendation"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "training",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "minimal_after_first_answer"
+      }
+    },
+    {
+      "plan_item_id": "PC0006-D4",
+      "stage": "input",
+      "activity_family": "source_comprehension",
+      "modality": "reading",
+      "purpose": "practice",
+      "mode": "accuracy",
+      "primary_construct": "Identify an expository text's main line and explain how a detail supports it",
+      "prompt_text": "Read the passage. Summarize its problem, trial and result. Explain why the staff recommend limiting bookings, and why they cannot yet be certain that the system works during busy periods.",
+      "material": {
+        "content_id": "CONTENT-C0006-D4-PRINTING",
+        "context_id": "CONTEXT-C0006-D4-CAMPUS",
+        "rights_status": "project_original",
+        "text": "A university tested online bookings for its campus printers. Previously, students waited in a single queue and could not predict how long printing would take. During a three-week trial, students could reserve a ten-minute slot. Average waiting time fell, and most participants said planning was easier. However, several booked slots were left unused, while students without bookings still had to wait. Staff therefore proposed limiting each student to one active booking and cancelling a reservation if the student was more than five minutes late. The trial took place early in the term, when relatively few assignments were due. Staff said they needed another trial near submission deadlines before deciding whether to keep the system."
+      },
+      "criteria": [
+        {
+          "importance": "essential",
+          "criterion_id": "CR-C6-R-MAIN",
+          "description": "Identifies uncertain waiting, booked slots, reduced waits and proposed changes"
+        },
+        {
+          "importance": "required",
+          "criterion_id": "CR-C6-R-RELATION",
+          "description": "Links unused slots to booking restrictions and light early-term demand to uncertainty near deadlines"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "bookings reduced waits and improved planning",
+          "unused bookings motivate limits and late cancellation",
+          "busy deadline periods were not tested"
+        ],
+        "acceptable_variants": "Any wording preserving the causal and limiting relationships",
+        "invalid_conditions": [
+          "claims proven effectiveness during deadlines",
+          "reverses unused-booking and restriction relationship"
+        ]
+      }
+    },
+    {
+      "plan_item_id": "PC0006-D5",
+      "stage": "output",
+      "activity_family": "extended_writing",
+      "modality": "writing",
+      "purpose": "practice",
+      "mode": "mixed",
+      "primary_construct": "Explain a practical peer code-review process in a coherent short paragraph",
+      "prompt_text": "In about 80 words, explain to a new teammate how to review each other's code before submitting a group assignment. Give a clear purpose, concrete steps and a brief concluding recommendation.",
+      "content_id": "CONTENT-C0006-D5",
+      "context_id": "CONTEXT-C0006-D5",
+      "criteria": [
+        {
+          "criterion_id": "CR-C5-W-METHOD",
+          "importance": "essential",
+          "description": "States a clear purpose and a practical code-review method"
+        },
+        {
+          "criterion_id": "CR-C5-W-PROCESS",
+          "importance": "required",
+          "description": "Explains concrete ordered steps and a relevant concluding recommendation"
+        },
+        {
+          "criterion_id": "CR-C5-W-CLARITY",
+          "importance": "required",
+          "description": "Uses understandable sentence boundaries and links"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "purpose of peer code review",
+          "concrete review steps",
+          "brief concluding recommendation"
+        ],
+        "acceptable_variants": "Any realistic peer code-review process with clear steps and closing advice",
+        "invalid_conditions": [
+          "unrelated answer",
+          "method without explanation"
+        ]
+      }
+    },
+    {
+      "plan_item_id": "PC0006-D6",
+      "stage": "output",
+      "activity_family": "opinion_explanation",
+      "modality": "speech",
+      "purpose": "assessment",
+      "mode": "fluency",
+      "primary_construct": "Explain concrete ordered actions and close with a relevant summary or recommendation while preserving a clear opening",
+      "prompt_text": "A new student's laptop has stopped working shortly before an assignment deadline. Explain a practical process for dealing with the problem: introduce the aim, describe two or three concrete actions, and finish with a brief summary or recommendation. Prepare silently for 60 seconds and speak for 45 to 60 seconds. This is an independent confirmation: no hints, model, notes or feedback before your complete first answer.",
+      "content_id": "CONTENT-C0006-D6",
+      "context_id": "CONTEXT-C0006-D6",
+      "criteria": [
+        {
+          "criterion_id": "CR-S-OPEN",
+          "importance": "required",
+          "description": "Introduces the purpose clearly"
+        },
+        {
+          "criterion_id": "CR-S-DEVELOP",
+          "importance": "required",
+          "description": "Connects two or three concrete actions with relevant details"
+        },
+        {
+          "criterion_id": "CR-S-END",
+          "importance": "essential",
+          "description": "Closes with a concise summary or practical recommendation linked to the explanation"
+        }
+      ],
+      "semantic_scope": {
+        "required_meaning_units": [
+          "clear purpose",
+          "ordered concrete actions with relevant detail",
+          "relevant closing summary or recommendation"
+        ],
+        "acceptable_variants": "Any realistic process that addresses the assigned situation",
+        "invalid_conditions": [
+          "no understandable process",
+          "unrelated answer"
+        ]
+      },
+      "evidence_mode": "assessment",
+      "access_profile": {
+        "preparation_seconds": 60,
+        "response_seconds_min": 45,
+        "response_seconds_max": 60,
+        "lookback": false
+      },
+      "planned_support": {
+        "level": "none"
+      },
+      "allowed_support": {
+        "maximum": "none"
+      }
+    },
+    {
+      "plan_item_id": "PC0006-D7",
+      "stage": "cycle_review",
+      "activity_family": "cycle_review",
+      "modality": "mixed",
+      "purpose": "assessment",
+      "mode": "mixed",
+      "primary_construct": "Review C0006 learning and goal evidence and confirm the next plan",
+      "prompt_text": "Use the bounded C0006 evidence packet to explain the goal result, supporting practice, unresolved evidence gaps, and a recommended next-cycle focus with one alternative. Obtain user confirmation before changing the next plan.",
+      "required_outputs": [
+        "goal_decision",
+        "evidence references",
+        "recommended next focus",
+        "alternative",
+        "user confirmation"
+      ]
+    }
+  ]
+}
